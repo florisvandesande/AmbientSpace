@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+        F10000000000000000000001 /* TrackGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20000000000000000000001; };
+        E10000000000000000000001 /* AmbientSpaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20000000000000000000001; };
+		100000000000000000000001 /* AmbientSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* AmbientSpaceApp.swift */; };
+		100000000000000000000002 /* AudioPlaybackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* AudioPlaybackController.swift */; };
+		100000000000000000000003 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000003 /* AudioSessionManager.swift */; };
+		100000000000000000000004 /* DualPlayerAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000004 /* DualPlayerAudioEngine.swift */; };
+		100000000000000000000005 /* RemoteControlCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* RemoteControlCoordinator.swift */; };
+		100000000000000000000006 /* SleepTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000006 /* SleepTimerController.swift */; };
+		100000000000000000000007 /* AudioCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* AudioCatalog.swift */; };
+		100000000000000000000008 /* AudioTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000008 /* AudioTrack.swift */; };
+		100000000000000000000009 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000009 /* Color+Hex.swift */; };
+		10000000000000000000000A /* BottomPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000A /* BottomPopover.swift */; };
+		100000000000000000000014 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000014 /* Localizable.xcstrings */; };
+		10000000000000000000000B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000B /* ContentView.swift */; };
+		10000000000000000000000C /* SleepTimerPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000C /* SleepTimerPopoverView.swift */; };
+		10000000000000000000000D /* TrackRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000D /* TrackRowView.swift */; };
+		10000000000000000000000E /* VolumePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000E /* VolumePopoverView.swift */; };
+		10000000000000000000000F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000F /* Assets.xcassets */; };
+		100000000000000000000010 /* AmbientSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* AmbientSpaceTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		300000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 400000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 500000000000000000000001;
+			remoteInfo = AmbientSpace;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+        F20000000000000000000001 /* TrackGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackGradient.swift; sourceTree = "<group>"; };
+        E20000000000000000000001 /* AmbientSpaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSpaceUITests.swift; sourceTree = "<group>"; };
+        E20000000000000000000002 /* AmbientSpaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbientSpaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000001 /* AmbientSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSpaceApp.swift; sourceTree = "<group>"; };
+		200000000000000000000002 /* AudioPlaybackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlaybackController.swift; sourceTree = "<group>"; };
+		200000000000000000000003 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		200000000000000000000004 /* DualPlayerAudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualPlayerAudioEngine.swift; sourceTree = "<group>"; };
+		200000000000000000000005 /* RemoteControlCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlCoordinator.swift; sourceTree = "<group>"; };
+		200000000000000000000006 /* SleepTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerController.swift; sourceTree = "<group>"; };
+		200000000000000000000007 /* AudioCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCatalog.swift; sourceTree = "<group>"; };
+		200000000000000000000008 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		200000000000000000000009 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		20000000000000000000000A /* BottomPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPopover.swift; sourceTree = "<group>"; };
+		200000000000000000000014 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		20000000000000000000000B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		20000000000000000000000C /* SleepTimerPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTimerPopoverView.swift; sourceTree = "<group>"; };
+		20000000000000000000000D /* TrackRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRowView.swift; sourceTree = "<group>"; };
+		20000000000000000000000E /* VolumePopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumePopoverView.swift; sourceTree = "<group>"; };
+		20000000000000000000000F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		200000000000000000000010 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200000000000000000000011 /* AmbientSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientSpaceTests.swift; sourceTree = "<group>"; };
+		200000000000000000000012 /* AmbientSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmbientSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000013 /* AmbientSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbientSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		600000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		600000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+        E70000000000000000000001 /* AmbientSpaceUITests */ = {isa = PBXGroup; children = (E20000000000000000000001,); path = AmbientSpaceUITests; sourceTree = "<group>"; };
+		700000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				700000000000000000000002 /* AmbientSpace */,
+				700000000000000000000009 /* AmbientSpaceTests */,
+                E70000000000000000000001 /* AmbientSpaceUITests */,
+				70000000000000000000000A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		700000000000000000000002 /* AmbientSpace */ = {
+			isa = PBXGroup;
+			children = (
+				700000000000000000000003 /* App */,
+				700000000000000000000004 /* Audio */,
+				700000000000000000000005 /* Models */,
+				700000000000000000000006 /* Support */,
+				700000000000000000000007 /* Views */,
+				700000000000000000000008 /* Resources */,
+			);
+			path = AmbientSpace;
+			sourceTree = "<group>";
+		};
+		700000000000000000000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000001 /* AmbientSpaceApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		700000000000000000000004 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000002 /* AudioPlaybackController.swift */,
+				200000000000000000000003 /* AudioSessionManager.swift */,
+				200000000000000000000004 /* DualPlayerAudioEngine.swift */,
+				200000000000000000000005 /* RemoteControlCoordinator.swift */,
+				200000000000000000000006 /* SleepTimerController.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		700000000000000000000005 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000007 /* AudioCatalog.swift */,
+				200000000000000000000008 /* AudioTrack.swift */,
+                F20000000000000000000001 /* TrackGradient.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		700000000000000000000006 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000009 /* Color+Hex.swift */,
+				20000000000000000000000A /* BottomPopover.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		700000000000000000000007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000000B /* ContentView.swift */,
+				20000000000000000000000C /* SleepTimerPopoverView.swift */,
+				20000000000000000000000D /* TrackRowView.swift */,
+				20000000000000000000000E /* VolumePopoverView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		700000000000000000000008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20000000000000000000000F /* Assets.xcassets */,
+				200000000000000000000010 /* Info.plist */,
+				200000000000000000000014 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		700000000000000000000009 /* AmbientSpaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000011 /* AmbientSpaceTests.swift */,
+			);
+			path = AmbientSpaceTests;
+			sourceTree = "<group>";
+		};
+		70000000000000000000000A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000012 /* AmbientSpace.app */,
+				200000000000000000000013 /* AmbientSpaceTests.xctest */,
+                E20000000000000000000002 /* AmbientSpaceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+        E50000000000000000000001 /* AmbientSpaceUITests */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = EB0000000000000000000001;
+            buildPhases = (E80000000000000000000001,);
+            buildRules = ();
+            dependencies = (C00000000000000000000001,);
+            name = AmbientSpaceUITests;
+            productName = AmbientSpaceUITests;
+            productReference = E20000000000000000000002;
+            productType = "com.apple.product-type.bundle.ui-testing";
+        };
+		500000000000000000000001 /* AmbientSpace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B00000000000000000000001 /* Build configuration list for PBXNativeTarget "AmbientSpace" */;
+			buildPhases = (
+				800000000000000000000001 /* Sources */,
+				600000000000000000000001 /* Frameworks */,
+				900000000000000000000001 /* Resources */,
+				A00000000000000000000001 /* Build Audio Catalog */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmbientSpace;
+			productName = AmbientSpace;
+			productReference = 200000000000000000000012 /* AmbientSpace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		500000000000000000000002 /* AmbientSpaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B00000000000000000000002 /* Build configuration list for PBXNativeTarget "AmbientSpaceTests" */;
+			buildPhases = (
+				800000000000000000000002 /* Sources */,
+				600000000000000000000002 /* Frameworks */,
+				900000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C00000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = AmbientSpaceTests;
+			productName = AmbientSpaceTests;
+			productReference = 200000000000000000000013 /* AmbientSpaceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		400000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					500000000000000000000001 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					500000000000000000000002 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 500000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = B00000000000000000000003 /* Build configuration list for PBXProject "AmbientSpace" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				nl,
+				fr,
+				de,
+				Base,
+			);
+			mainGroup = 700000000000000000000001;
+			productRefGroup = 70000000000000000000000A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				500000000000000000000001 /* AmbientSpace */,
+				500000000000000000000002 /* AmbientSpaceTests */,
+                E50000000000000000000001 /* AmbientSpaceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		900000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10000000000000000000000F /* Assets.xcassets in Resources */,
+				100000000000000000000014 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		900000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A00000000000000000000001 /* Build Audio Catalog */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Audio Catalog";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$SRCROOT/../audio-files\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+        E80000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (E10000000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
+		800000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000001 /* AmbientSpaceApp.swift in Sources */,
+				100000000000000000000002 /* AudioPlaybackController.swift in Sources */,
+				100000000000000000000003 /* AudioSessionManager.swift in Sources */,
+				100000000000000000000004 /* DualPlayerAudioEngine.swift in Sources */,
+				100000000000000000000005 /* RemoteControlCoordinator.swift in Sources */,
+				100000000000000000000006 /* SleepTimerController.swift in Sources */,
+				100000000000000000000007 /* AudioCatalog.swift in Sources */,
+				100000000000000000000008 /* AudioTrack.swift in Sources */,
+                F10000000000000000000001 /* TrackGradient.swift in Sources */,
+				100000000000000000000009 /* Color+Hex.swift in Sources */,
+				10000000000000000000000A /* BottomPopover.swift in Sources */,
+				10000000000000000000000B /* ContentView.swift in Sources */,
+				10000000000000000000000C /* SleepTimerPopoverView.swift in Sources */,
+				10000000000000000000000D /* TrackRowView.swift in Sources */,
+				10000000000000000000000E /* VolumePopoverView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		800000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000010 /* AmbientSpaceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C00000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 500000000000000000000001 /* AmbientSpace */;
+			targetProxy = 300000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+        ED0000000000000000000001 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_STYLE = Automatic;
+                GENERATE_INFOPLIST_FILE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceUITests;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = 1;
+                TEST_TARGET_NAME = AmbientSpace;
+            };
+            name = Debug;
+        };
+        ED0000000000000000000002 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                CODE_SIGN_STYLE = Automatic;
+                GENERATE_INFOPLIST_FILE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceUITests;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = 1;
+                TEST_TARGET_NAME = AmbientSpace;
+            };
+            name = Release;
+        };
+		D00000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AmbientSpace/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D00000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AmbientSpace/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpace;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D00000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmbientSpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AmbientSpace";
+			};
+			name = Debug;
+		};
+		D00000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmbientSpace.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AmbientSpace";
+			};
+			name = Release;
+		};
+		D00000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D00000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+        EB0000000000000000000001 /* UI test configurations */ = {isa = XCConfigurationList; buildConfigurations = (ED0000000000000000000001, ED0000000000000000000002,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		B00000000000000000000001 /* Build configuration list for PBXNativeTarget "AmbientSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00000000000000000000001 /* Debug */,
+				D00000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B00000000000000000000002 /* Build configuration list for PBXNativeTarget "AmbientSpaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00000000000000000000003 /* Debug */,
+				D00000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B00000000000000000000003 /* Build configuration list for PBXProject "AmbientSpace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00000000000000000000005 /* Debug */,
+				D00000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 400000000000000000000001 /* Project object */;
+}
