@@ -53,6 +53,5 @@ struct VolumePopoverView: View {
             }
         }
         .padding(20)
-        .background(.regularMaterial)
     }
 }

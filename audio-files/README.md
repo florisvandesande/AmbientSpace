@@ -85,6 +85,6 @@ Build or deploy the app again. The always-run Xcode build phase copies the three
 
 Do not edit the generated catalog. Remove a source folder to omit a recording from the next build; old bundled copies are removed automatically. Other files in a track folder are not copied to the app.
 
-## Before sharing media publicly
+## Media files
 
-Record the creator, original source, license, required attribution, and any permission to redistribute for every recording and cover. A credit in a description is not a substitute for a license. See [the publication checklist](../docs/OPEN_SOURCE_CHECKLIST.md).
+The app looks for .m4a audio files. Please convert other types to this format before building the app. If you need to trim the beginning or the end of the file, please consider using [Trimmer](https://github.com/florisvandesande/Trimmer), my **lossless audio trimmer for macOS**.

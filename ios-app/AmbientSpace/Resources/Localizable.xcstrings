@@ -1,1210 +1,1245 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Volume": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@, %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lautstärke"
-          }
-        }
-      }
-    },
-    "AmbientSpace volume": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace volume"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace-volume"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume d’AmbientSpace"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace-Lautstärke"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
           }
         }
       }
     },
-    "Only changes AmbientSpace. The iPhone volume and other apps stay unchanged.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Only changes AmbientSpace. The iPhone volume and other apps stay unchanged."
+    "%lld h" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Std."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wijzigt alleen AmbientSpace. Het iPhone-volume en andere apps blijven ongewijzigd."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld h"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Modifie uniquement AmbientSpace. Le volume de l’iPhone et des autres apps reste inchangé."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld h"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ändert nur AmbientSpace. Die Lautstärke des iPhones und anderer Apps bleibt unverändert."
-          }
-        }
-      }
-    },
-    "Foreground mode": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foreground mode"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voorgrondmodus"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mode premier plan"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vordergrundmodus"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld uur"
           }
         }
       }
     },
-    "Background": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Background"
+    "%lld min" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Min."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Achtergrond"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Arrière-plan"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hintergrund"
-          }
-        }
-      }
-    },
-    "Foreground": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foreground"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voorgrond"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Premier plan"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vordergrund"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         }
       }
     },
-    "AmbientSpace mixes with other apps and leaves their media controls available.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace mixes with other apps and leaves their media controls available."
+    "Add a sound folder to audio-files and rebuild the app. The README in that folder explains each file step by step." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge einen Klangordner zu audio-files hinzu und erstelle die App erneut. Die README in diesem Ordner erklärt jede Datei Schritt für Schritt."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace mengt met andere apps en laat hun mediabediening beschikbaar."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a sound folder to audio-files and rebuild the app. The README in that folder explains each file step by step."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace se mélange aux autres apps et laisse leurs commandes multimédias disponibles."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajoutez un dossier sonore dans audio-files, puis recompilez l’app. Le README de ce dossier explique chaque fichier pas à pas."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace wird mit anderen Apps gemischt. Deren Mediensteuerung bleibt verfügbar."
-          }
-        }
-      }
-    },
-    "AmbientSpace takes over media controls and shows the current cover.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace takes over media controls and shows the current cover."
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace neemt de mediabediening over en toont de huidige cover."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace prend le contrôle des commandes multimédias et affiche la pochette actuelle."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace übernimmt die Mediensteuerung und zeigt das aktuelle Cover."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voeg een geluidsmap toe aan audio-files en bouw de app opnieuw. De README in die map beschrijft ieder bestand stap voor stap."
           }
         }
       }
     },
-    "AmbientSpace cannot continue": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace cannot continue"
+    "AmbientSpace" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace kan niet doorgaan"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace ne peut pas continuer"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AmbientSpace kann nicht fortfahren"
-          }
-        }
-      }
-    },
-    "Close": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Close"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sluiten"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fermer"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Schließen"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
           }
         }
       }
     },
-    "Unknown error": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unknown error"
+    "AmbientSpace cannot continue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace kann nicht fortfahren"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Onbekende fout"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace cannot continue"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Erreur inconnue"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace ne peut pas continuer"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unbekannter Fehler"
-          }
-        }
-      }
-    },
-    "Now playing: %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Now playing: %@"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nu klinkt: %@"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "À l’écoute : %@"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktuelle Wiedergabe: %@"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace kan niet doorgaan"
           }
         }
       }
     },
-    "Choose an atmosphere": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choose an atmosphere"
+    "AmbientSpace mixes with other apps and leaves their media controls available." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace wird mit anderen Apps gemischt. Deren Mediensteuerung bleibt verfügbar."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kies een omgeving"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace mixes with other apps and leaves their media controls available."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez une ambiance"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace se mélange aux autres apps et laisse leurs commandes multimédias disponibles."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wähle eine Atmosphäre"
-          }
-        }
-      }
-    },
-    "Volume and audio mode": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume and audio mode"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume en audiomodus"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volume et mode audio"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lautstärke und Audiomodus"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace mengt met andere apps en laat hun mediabediening beschikbaar."
           }
         }
       }
     },
-    "Sleep timer": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sleep timer"
+    "AmbientSpace takes over media controls and shows the current cover." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace übernimmt die Mediensteuerung und zeigt das aktuelle Cover."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slaaptimer"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace takes over media controls and shows the current cover."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minuterie de sommeil"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace prend le contrôle des commandes multimédias et affiche la pochette actuelle."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einschlaftimer"
-          }
-        }
-      }
-    },
-    "No sounds yet": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No sounds yet"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nog geen geluiden"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucun son pour le moment"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noch keine Klänge"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace neemt de mediabediening over en toont de huidige cover."
           }
         }
       }
     },
-    "Add a sound folder to audio-files and rebuild the app. The README in that folder explains each file step by step.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add a sound folder to audio-files and rebuild the app. The README in that folder explains each file step by step."
+    "AmbientSpace volume" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace-Lautstärke"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voeg een geluidsmap toe aan audio-files en bouw de app opnieuw. De README in die map beschrijft ieder bestand stap voor stap."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace volume"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez un dossier sonore dans audio-files, puis recompilez l’app. Le README de ce dossier explique chaque fichier pas à pas."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume d’AmbientSpace"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Füge einen Klangordner zu audio-files hinzu und erstelle die App erneut. Die README in diesem Ordner erklärt jede Datei Schritt für Schritt."
-          }
-        }
-      }
-    },
-    "Time remaining: %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Time remaining: %@"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resterende tijd: %@"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Temps restant : %@"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verbleibende Zeit: %@"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace-volume"
           }
         }
       }
     },
-    "The sound fades out during the last fifteen seconds.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The sound fades out during the last fifteen seconds."
+    "Audio catalog version %lld is not supported." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Audiokatalogversion %lld wird nicht unterstützt."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Het geluid wordt tijdens de laatste vijftien seconden geleidelijk zachter."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio catalog version %lld is not supported."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le son diminue progressivement pendant les quinze dernières secondes."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La version %lld du catalogue audio n’est pas prise en charge."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Klang wird in den letzten fünfzehn Sekunden ausgeblendet."
-          }
-        }
-      }
-    },
-    "Cancel sleep timer": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel sleep timer"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuleer slaaptimer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler la minuterie"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einschlaftimer abbrechen"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versie %lld van de audiocatalogus wordt niet ondersteund."
           }
         }
       }
     },
-    "Custom duration": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Custom duration"
+    "Background" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hintergrund"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aangepaste duur"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Background"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Durée personnalisée"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrière-plan"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eigene Dauer"
-          }
-        }
-      }
-    },
-    "Hours": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hours"
-          }
-        },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uren"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Heures"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stunden"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achtergrond"
           }
         }
       }
     },
-    "Minutes": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minutes"
+    "Cancel sleep timer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einschlaftimer abbrechen"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minuten"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel sleep timer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minutes"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler la minuterie"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minuten"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuleer slaaptimer"
           }
         }
       }
     },
-    "%lld h": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld h"
+    "Choose an atmosphere" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle eine Atmosphäre"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld uur"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose an atmosphere"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld h"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez une ambiance"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Std."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies een omgeving"
           }
         }
       }
     },
-    "%lld min": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
+    "Close" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Min."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sluiten"
           }
         }
       }
     },
-    "Start custom timer": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start custom timer"
+    "Collapsed" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eingeklappt"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start aangepaste timer"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collapsed"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Démarrer la minuterie"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réduit"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eigenen Timer starten"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingeklapt"
           }
         }
       }
     },
-    "Play a sound before setting the sleep timer.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Play a sound before setting the sleep timer."
+    "Custom duration" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene Dauer"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start eerst een geluid om de slaaptimer in te stellen."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Custom duration"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lancez un son avant de régler la minuterie."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durée personnalisée"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Starte einen Klang, bevor du den Einschlaftimer einstellst."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aangepaste duur"
           }
         }
       }
     },
-    "%@, %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@, %@"
+    "Expanded" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgeklappt"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@, %@"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expanded"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@, %@"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Développé"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@, %@"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uitgeklapt"
           }
         }
       }
     },
-    "Show description": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Show description"
+    "Foreground" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vordergrund"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toon beschrijving"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foreground"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher la description"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premier plan"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beschreibung anzeigen"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voorgrond"
           }
         }
       }
     },
-    "Hide description": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hide description"
+    "Foreground mode" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vordergrundmodus"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verberg beschrijving"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foreground mode"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Masquer la description"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode premier plan"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beschreibung ausblenden"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voorgrondmodus"
           }
         }
       }
     },
-    "Expanded": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Expanded"
+    "Hide description" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beschreibung ausblenden"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uitgeklapt"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide description"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Développé"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer la description"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ausgeklappt"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verberg beschrijving"
           }
         }
       }
     },
-    "Collapsed": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Collapsed"
+    "Hours" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stunden"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingeklapt"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hours"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réduit"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heures"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eingeklappt"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uren"
           }
         }
       }
     },
-    "Pause %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause %@"
+    "Minutes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minuten"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pauzeer %@"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutes"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mettre %@ en pause"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutes"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ pausieren"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minuten"
           }
         }
       }
     },
-    "Play %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Play %@"
+    "No sounds yet" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Klänge"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speel %@"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No sounds yet"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lire %@"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun son pour le moment"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ abspielen"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nog geen geluiden"
           }
         }
       }
     },
-    "This recording is only %lld seconds long. Use at least twelve seconds.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This recording is only %lld seconds long. Use at least twelve seconds."
+    "Now playing: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuelle Wiedergabe: %@"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dit audiobestand duurt slechts %lld seconden. Gebruik minimaal twaalf seconden."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Now playing: %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cet enregistrement ne dure que %lld secondes. Utilisez au moins douze secondes."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À l’écoute : %@"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Diese Aufnahme ist nur %lld Sekunden lang. Verwende mindestens zwölf Sekunden."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu klinkt: %@"
           }
         }
       }
     },
-    "The recording could not be played. Check the audio file and try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The recording could not be played. Check the audio file and try again."
+    "Only changes AmbientSpace. The iPhone volume and other apps stay unchanged." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ändert nur AmbientSpace. Die Lautstärke des iPhones und anderer Apps bleibt unverändert."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Het geluid kon niet worden afgespeeld. Controleer het audiobestand en probeer opnieuw."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only changes AmbientSpace. The iPhone volume and other apps stay unchanged."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de lire l’enregistrement. Vérifiez le fichier audio et réessayez."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifie uniquement AmbientSpace. Le volume de l’iPhone et des autres apps reste inchangé."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Aufnahme konnte nicht abgespielt werden. Prüfe die Audiodatei und versuche es erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wijzigt alleen AmbientSpace. Het iPhone-volume en andere apps blijven ongewijzigd."
           }
         }
       }
     },
-    "The audio file for ‘%@’ is missing. Rebuild the app.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The audio file for ‘%@’ is missing. Rebuild the app."
+    "Pause %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pausieren"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Het audiobestand voor ‘%@’ ontbreekt. Bouw de app opnieuw."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le fichier audio de « %@ » est introuvable. Recompilez l’app."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mettre %@ en pause"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Audiodatei für „%@“ fehlt. Erstelle die App erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pauzeer %@"
           }
         }
       }
     },
-    "The audio file for ‘%@’ could not be opened.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The audio file for ‘%@’ could not be opened."
+    "Play %@" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ abspielen"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Het audiobestand voor ‘%@’ kon niet worden geopend."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play %@"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible d’ouvrir le fichier audio de « %@ »."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire %@"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Audiodatei für „%@“ konnte nicht geöffnet werden."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speel %@"
           }
         }
       }
     },
-    "Playback could not resume. Try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Playback could not resume. Try again."
+    "Play a sound before setting the sleep timer." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starte einen Klang, bevor du den Einschlaftimer einstellst."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Het afspelen kon niet worden hervat. Probeer opnieuw."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play a sound before setting the sleep timer."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de reprendre la lecture. Réessayez."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancez un son avant de régler la minuterie."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Wiedergabe konnte nicht fortgesetzt werden. Versuche es erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start eerst een geluid om de slaaptimer in te stellen."
           }
         }
       }
     },
-    "The audio mode could not be changed. Try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The audio mode could not be changed. Try again."
+    "Playback could not resume. Try again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Wiedergabe konnte nicht fortgesetzt werden. Versuche es erneut."
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De audiomodus kon niet worden gewijzigd. Probeer opnieuw."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playback could not resume. Try again."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de modifier le mode audio. Réessayez."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de reprendre la lecture. Réessayez."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Audiomodus konnte nicht geändert werden. Versuche es erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het afspelen kon niet worden hervat. Probeer opnieuw."
           }
         }
       }
     },
-    "The audio catalog is missing. Rebuild the app in Xcode.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The audio catalog is missing. Rebuild the app in Xcode."
+    "Show description" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beschreibung anzeigen"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De audiocatalogus ontbreekt. Bouw de app opnieuw vanuit Xcode."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show description"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le catalogue audio est introuvable. Recompilez l’app dans Xcode."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher la description"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Audiokatalog fehlt. Erstelle die App in Xcode erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon beschrijving"
           }
         }
       }
     },
-    "Audio catalog version %lld is not supported.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Audio catalog version %lld is not supported."
+    "Sleep timer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einschlaftimer"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Versie %lld van de audiocatalogus wordt niet ondersteund."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep timer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La version %lld du catalogue audio n’est pas prise en charge."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minuterie de sommeil"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Die Audiokatalogversion %lld wird nicht unterstützt."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slaaptimer"
           }
         }
       }
     },
-    "The audio catalog could not be read. Check the audio folders and rebuild.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The audio catalog could not be read. Check the audio folders and rebuild."
+    "Start custom timer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigenen Timer starten"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De audiocatalogus kon niet worden gelezen. Controleer de audiomappen en bouw opnieuw."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start custom timer"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de lire le catalogue audio. Vérifiez les dossiers audio et recompilez l’app."
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrer la minuterie"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Der Audiokatalog konnte nicht gelesen werden. Prüfe die Audioordner und erstelle die App erneut."
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start aangepaste timer"
+          }
+        }
+      }
+    },
+    "The audio catalog could not be read. Check the audio folders and rebuild." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Audiokatalog konnte nicht gelesen werden. Prüfe die Audioordner und erstelle die App erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The audio catalog could not be read. Check the audio folders and rebuild."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le catalogue audio. Vérifiez les dossiers audio et recompilez l’app."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De audiocatalogus kon niet worden gelezen. Controleer de audiomappen en bouw opnieuw."
+          }
+        }
+      }
+    },
+    "The audio catalog is missing. Rebuild the app in Xcode." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Audiokatalog fehlt. Erstelle die App in Xcode erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The audio catalog is missing. Rebuild the app in Xcode."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le catalogue audio est introuvable. Recompilez l’app dans Xcode."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De audiocatalogus ontbreekt. Bouw de app opnieuw vanuit Xcode."
+          }
+        }
+      }
+    },
+    "The audio file for ‘%@’ could not be opened." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Audiodatei für „%@“ konnte nicht geöffnet werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The audio file for ‘%@’ could not be opened."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’ouvrir le fichier audio de « %@ »."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het audiobestand voor ‘%@’ kon niet worden geopend."
+          }
+        }
+      }
+    },
+    "The audio file for ‘%@’ is missing. Rebuild the app." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Audiodatei für „%@“ fehlt. Erstelle die App erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The audio file for ‘%@’ is missing. Rebuild the app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le fichier audio de « %@ » est introuvable. Recompilez l’app."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het audiobestand voor ‘%@’ ontbreekt. Bouw de app opnieuw."
+          }
+        }
+      }
+    },
+    "The audio mode could not be changed. Try again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Audiomodus konnte nicht geändert werden. Versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The audio mode could not be changed. Try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de modifier le mode audio. Réessayez."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De audiomodus kon niet worden gewijzigd. Probeer opnieuw."
+          }
+        }
+      }
+    },
+    "The recording could not be played. Check the audio file and try again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Aufnahme konnte nicht abgespielt werden. Prüfe die Audiodatei und versuche es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The recording could not be played. Check the audio file and try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire l’enregistrement. Vérifiez le fichier audio et réessayez."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het geluid kon niet worden afgespeeld. Controleer het audiobestand en probeer opnieuw."
+          }
+        }
+      }
+    },
+    "The sound fades out during the last fifteen seconds." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Klang wird in den letzten fünfzehn Sekunden ausgeblendet."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The sound fades out during the last fifteen seconds."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le son diminue progressivement pendant les quinze dernières secondes."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het geluid wordt tijdens de laatste vijftien seconden geleidelijk zachter."
+          }
+        }
+      }
+    },
+    "This recording is only %lld seconds long. Use at least twelve seconds." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Aufnahme ist nur %lld Sekunden lang. Verwende mindestens zwölf Sekunden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This recording is only %lld seconds long. Use at least twelve seconds."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cet enregistrement ne dure que %lld secondes. Utilisez au moins douze secondes."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dit audiobestand duurt slechts %lld seconden. Gebruik minimaal twaalf seconden."
+          }
+        }
+      }
+    },
+    "Time remaining: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbleibende Zeit: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time remaining: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temps restant : %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resterende tijd: %@"
+          }
+        }
+      }
+    },
+    "Unknown error" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannter Fehler"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur inconnue"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onbekende fout"
+          }
+        }
+      }
+    },
+    "Volume" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lautstärke"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        }
+      }
+    },
+    "Volume and audio mode" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lautstärke und Audiomodus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume and audio mode"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume et mode audio"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume en audiomodus"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

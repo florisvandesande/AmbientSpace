@@ -21,7 +21,6 @@ struct SleepTimerPopoverView: View {
             }
         }
         .padding(20)
-        .background(.regularMaterial)
     }
 
     private var activeTimer: some View {

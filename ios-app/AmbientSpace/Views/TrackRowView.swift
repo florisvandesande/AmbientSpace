@@ -10,60 +10,56 @@ struct TrackRowView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private var gradient: TrackGradient { track.rowGradient(isPlaying: isPlaying) }
 
+    func toggleBoth() {
+        onTogglePlayback()
+        onToggleExpanded()
+    }
+
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            VStack(alignment: .leading, spacing: 0) {
-                Button(action: onToggleExpanded) {
+        Button(action: toggleBoth) {
+            HStack(alignment: .top, spacing: 12) {
+                VStack(alignment: .leading, spacing: 0) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(track.displayTitle)
                             .font(.title3.weight(.bold))
+                            .foregroundStyle(.white)
                         Text(track.displaySubtitle)
                             .font(.subheadline.weight(.medium))
+                            .foregroundStyle(.white)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("\(track.displayTitle), \(track.displaySubtitle)")
-                .accessibilityHint(isExpanded ? String(localized: "Hide description") : String(localized: "Show description"))
-                .accessibilityValue(isExpanded ? String(localized: "Expanded") : String(localized: "Collapsed"))
-                .accessibilityIdentifier("trackTitle-\(track.id)")
 
-                // Clip only the reveal area: moving text cannot cross the subtitle.
-                VStack(alignment: .leading, spacing: 0) {
-                    if isExpanded {
-                        Text(track.displayDescription)
-                            .accessibilityIdentifier("trackDescription-\(track.id)")
-                            .font(.body)
-                            .lineSpacing(3)
-                            .padding(.top, 10)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .transition(
-                                reduceMotion
-                                    ? .opacity
-                                    : .opacity.combined(with: .move(edge: .top))
-                            )
+                    // Clip only the reveal area: moving text cannot cross the subtitle.
+                    VStack(alignment: .leading, spacing: 8) {
+                        if isExpanded {
+                            Text(track.displayDescription)
+                                .accessibilityIdentifier("trackDescription-\(track.id)")
+                                .font(.subheadline.weight(.medium))
+                                .foregroundStyle(.white.opacity(0.90))
+                                .multilineTextAlignment(.leading)
+                                .lineSpacing(3)
+                                .padding(.top, 4)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .transition(
+                                    reduceMotion
+                                        ? .opacity
+                                        : .opacity.combined(with: .move(edge: .top))
+                                )
+                        }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .clipped()
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .clipped()
-            }
 
-            Button(action: onTogglePlayback) {
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
-                    .font(.body.weight(.bold))
-                    .foregroundStyle(.white)
-                    .frame(width: 46, height: 46)
-                    .background(.ultraThinMaterial, in: Circle())
-                    .overlay {
-                        Circle().strokeBorder(.white.opacity(0.28), lineWidth: 0.5)
-                    }
+                HStack(spacing: 0) {
+                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                        .font(.body.weight(.bold))
+                        .foregroundStyle(.white)
+                }
             }
-            .buttonStyle(.plain)
-            .accessibilityLabel(isPlaying ? String(localized: "Pause \(track.displayTitle)") : String(localized: "Play \(track.displayTitle)"))
-            .accessibilityIdentifier("trackPlayback-\(track.id)")
         }
-        .foregroundStyle(.white)
+        // The whole row is now tappable for playback - no nested play button wrapper
         .padding(18)
         .background {
             LinearGradient(
@@ -72,12 +68,13 @@ struct TrackRowView: View {
                 endPoint: .bottomTrailing
             )
         }
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .overlay {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .strokeBorder(.white.opacity(isPlaying ? 0.30 : 0.12), lineWidth: 0.75)
         }
         .shadow(color: track.endColor.opacity(isPlaying ? 0.28 : 0.08), radius: 18, y: 8)
+        // Keep the play icon state visible while playing as a second indication
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.35), value: isPlaying)
     }
 }

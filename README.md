@@ -92,7 +92,7 @@ This checks compilation. An unsigned app cannot be installed on a normal iPhone.
 
 First connect and unlock the phone, trust the Mac, and enable **Developer Mode** under **Settings > Privacy & Security**. In Xcode, make sure your Apple account is signed in. Pair the device in **Window > Devices and Simulators**. Once paired and available on the local network, the script can deploy wirelessly without a separate wireless flag.
 
-List devices:
+List paired physical iPhones (simulators are intentionally excluded):
 
 ```bash
 scripts/deploy_ios_to_iphone.sh --list

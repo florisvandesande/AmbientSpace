@@ -28,9 +28,11 @@ struct ContentView: View {
                             .padding(.top, 48)
                     } else {
                         ForEach(playback.tracks) { track in
+                            let isCurrentTrack = playback.isPlaying && playback.currentTrack?.id == track.id
+
                             TrackRowView(
                                 track: track,
-                                isPlaying: playback.isPlaying && playback.currentTrack?.id == track.id,
+                                isPlaying: isCurrentTrack,
                                 isExpanded: expandedTrackID == track.id,
                                 onToggleExpanded: {
                                     withAnimation(reduceMotion ? nil : .snappy(duration: 0.35)) {
@@ -154,8 +156,8 @@ private struct AmbientBackground: View {
         LinearGradient(
             colors: [
                 colorScheme == .dark ? Color.black : Color.white,
-                firstColor.opacity(isPlaying ? 0.32 : 0.16),
-                secondColor.opacity(isPlaying ? 0.40 : 0.20),
+                firstColor.opacity(colorScheme == .light ? (isPlaying ? 0.75 : 0.45) : (isPlaying ? 0.32 : 0.16)),
+                secondColor.opacity(colorScheme == .light ? (isPlaying ? 0.85 : 0.55) : (isPlaying ? 0.40 : 0.20)),
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
@@ -163,7 +165,7 @@ private struct AmbientBackground: View {
         .overlay {
             if !reduceTransparency {
                 Circle()
-                    .fill(firstColor.opacity(isPlaying ? 0.22 : 0.10))
+                    .fill(firstColor.opacity(colorScheme == .light ? (isPlaying ? 0.50 : 0.30) : (isPlaying ? 0.22 : 0.10)))
                     .frame(width: 360, height: 360)
                     .blur(radius: 80)
                     .offset(x: 150, y: -230)

@@ -19,13 +19,13 @@ usage() {
     cat <<EOF
 Usage: $(basename "$0") [options] [device-id]
 
-Builds, installs, launches, and verifies AmbientSpace on an iPhone.
+Builds, installs, launches, and verifies AmbientSpace on a physical iPhone.
 
 Options:
   --device ID            Explicit device identifier from devicectl
   --configuration NAME   Xcode build configuration. Default: $CONFIGURATION
   --team ID              Your Apple Developer team identifier (required)
-  --list                 Show paired iPhones and exit
+  --list                 Show paired physical iPhones and exit
   -h, --help             Show this help message
 
 Environment variables:
@@ -108,7 +108,7 @@ found = False
 for device in devices:
     hardware = device.get("hardwareProperties", {})
     product_type = hardware.get("productType", "")
-    if not product_type.startswith("iPhone"):
+    if not product_type.startswith("iPhone") or hardware.get("reality") != "physical":
         continue
 
     identifier = device.get("identifier", "")
@@ -120,7 +120,7 @@ for device in devices:
     found = True
 
 if not found:
-    print("No paired iPhones found.")
+    print("No paired physical iPhones found.")
 PY
 
     rm -f "$devices_json"
@@ -143,6 +143,7 @@ iphones = [
     device
     for device in devices
     if device.get("hardwareProperties", {}).get("productType", "").startswith("iPhone")
+    and device.get("hardwareProperties", {}).get("reality") == "physical"
     and device.get("identifier")
 ]
 
@@ -165,8 +166,54 @@ PY
     rm -f "$devices_json"
 
     if [[ -z "$DEVICE_ID" ]]; then
-        fail "No iPhone found. Connect and unlock an iPhone, trust this Mac, then run the script again."
+        fail "No physical iPhone found. Connect and unlock an iPhone, trust this Mac, then run the script again."
     fi
+}
+
+validate_selected_iphone() {
+    local devices_json
+    local validation_error
+    devices_json="$(mktemp "${TMPDIR:-/tmp}/ambientspace-devices.XXXXXX")"
+    write_devices_json "$devices_json"
+
+    if ! validation_error="$(python3 - "$devices_json" "$DEVICE_ID" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+payload = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+device_id = sys.argv[2]
+devices = payload.get("result", {}).get("devices", [])
+device = next((item for item in devices if item.get("identifier") == device_id), None)
+
+if device is None:
+    print(f"No device found with identifier '{device_id}'. Run --list to show physical iPhones.")
+    sys.exit(1)
+
+hardware = device.get("hardwareProperties", {})
+properties = device.get("deviceProperties", {})
+connection = device.get("connectionProperties", {})
+name = properties.get("name", "Unnamed device")
+
+if not hardware.get("productType", "").startswith("iPhone"):
+    print(f"'{name}' is not an iPhone. Run --list to show physical iPhones.")
+    sys.exit(1)
+
+if hardware.get("reality") != "physical":
+    print(f"'{name}' is a simulator. Select a physical iPhone shown by --list.")
+    sys.exit(1)
+
+state = (connection.get("tunnelState") or connection.get("state") or device.get("state", "")).lower()
+if state not in {"available", "connected"}:
+    print(f"Physical iPhone '{name}' is not connected. Unlock it and connect it by cable or paired Wi-Fi.")
+    sys.exit(1)
+PY
+)"; then
+        rm -f "$devices_json"
+        fail "$validation_error"
+    fi
+
+    rm -f "$devices_json"
 }
 
 run_devicectl_with_timeout() {
@@ -255,6 +302,7 @@ main() {
     if [[ -z "$DEVICE_ID" ]]; then
         select_first_iphone
     fi
+    validate_selected_iphone
 
     if [[ -z "$DEVELOPMENT_TEAM" ]]; then
         fail "No signing team selected. Run: $0 --team YOUR_TEAM_ID --device $DEVICE_ID"
