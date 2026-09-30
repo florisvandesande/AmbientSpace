@@ -324,7 +324,7 @@ main() {
         -allowProvisioningUpdates \
         -allowProvisioningDeviceRegistration \
         DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
-        PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID"
+        AMBIENTSPACE_BUNDLE_ID="$BUNDLE_ID"
 
     validate_built_app "$app_path"
 

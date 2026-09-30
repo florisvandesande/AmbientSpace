@@ -10,7 +10,7 @@ let package = Package(
         .target(
             name: "AmbientSpace",
             path: "ios-app/AmbientSpace",
-            exclude: ["App", "Views", "Support", "Resources", "Audio/AudioPlaybackController.swift", "Audio/AudioSessionManager.swift", "Audio/RemoteControlCoordinator.swift"],
+            exclude: ["App", "Views", "Support", "Resources", "Audio/AudioPlaybackController.swift", "Audio/AudioSessionManager.swift", "Audio/LiveActivityCoordinator.swift", "Audio/RemoteControlCoordinator.swift", "Models/AmbientPlaybackActivityAttributes.swift"],
             sources: ["Models", "Audio/DualPlayerAudioEngine.swift", "Audio/SleepTimerController.swift"]
         ),
         .testTarget(name: "AmbientSpaceTests", dependencies: ["AmbientSpace"], path: "ios-app/AmbientSpaceTests")

@@ -24,13 +24,41 @@ AmbientSpace is a small, native iPhone app for looping ambient recordings. Mix a
 ## Features
 
 - **Independent volume.** Turn AmbientSpace down without changing another app's volume. Hardware volume buttons still control the phone's system volume.
-- **Looping and transitions.** One recording at a time, with a six-second crossfade at loop boundaries and when switching recordings.
-- **Two audio modes.** Background mode mixes with other apps. Foreground mode provides artwork and play, pause, previous, and next controls on the Lock Screen.
+- **Infinite looping and transitions.** Every recording repeats indefinitely by default, with a six-second crossfade into the next repetition and when switching recordings.
+- **System playback.** Background mode mixes with other apps. Foreground mode provides artwork and play, pause, previous, and next controls on the Lock Screen and in Control Center. When metadata contains an SF Symbol, that symbol is used as the system artwork.
+- **System actions.** “Play a random sound” and “Play sound” are available through App Shortcuts. On iOS 18 or later, the same actions can be added to Control Center, the Lock Screen, or the Action button; the second action is configured with a particular sound.
+- **Live Activity.** While audio is playing, the current sound and its symbol appear on the Lock Screen and supported Dynamic Island devices. Tapping it opens AmbientSpace. Pausing or stopping ends the Live Activity.
 - **Sleep timer.** Choose 15, 30, 45, or 60 minutes, or a custom duration from one minute to twelve hours. Audio fades during the final fifteen seconds.
 - **A simple library.** Color gradients come from recording metadata. Tap a title to reveal its description; use the separate button to play or pause.
-- **Four interface languages.** English, Dutch, French, and German follow the phone's language preferences. There is no in-app language setting. Recording translations are optional.
+- **Seven recording languages.** Recording metadata supports English, Dutch, French, German, Spanish, Italian, and Brazilian Portuguese and follows the phone's language preferences. The surrounding interface currently remains available in English, Dutch, French, and German. There is no in-app language setting.
 
 The app starts paused, in background mode, at 100% app volume. Playback state, app volume, mode, and timer are not saved between full launches.
+
+If a sound's `sfSymbol` value is empty or omitted, AmbientSpace shows the standard Play button and uses its cover image for foreground system playback. See [Add sounds](audio-files/README.md) for the JSON format.
+
+### Suggested weather and nature symbols
+
+The following image is rendered from the system’s SF Symbols on macOS. Enter the exact text shown beside an icon in `metadata.json`. Symbols can look slightly different between operating-system versions.
+
+![Weather and nature SF Symbols with their JSON names](docs/icons/sf-symbols-weather-nature.png)
+
+Useful categories include:
+
+- Weather: `sun.max.fill`, `sun.haze.fill`, `sunrise.fill`, `sunset.fill`, `cloud.fill`, `cloud.rain.fill`, `cloud.heavyrain.fill`, `cloud.drizzle.fill`, `cloud.bolt.fill`, `cloud.bolt.rain.fill`, `cloud.snow.fill`, `cloud.fog.fill`, `wind`, `tornado`, `hurricane`, and `snowflake`.
+- Water and landscape: `drop.fill`, `humidity.fill`, `water.waves`, `water.waves.and.arrow.trianglehead.up`, `leaf.fill`, `tree.fill`, and `mountain.2.fill`.
+- Animals and ambience: `bird.fill`, `hare.fill`, `tortoise.fill`, `fish.fill`, `ladybug.fill`, `moon.stars.fill`, `sparkles`, `flame.fill`, and `waveform`.
+
+An intentionally unconfigured entry looks like this:
+
+```json
+"sfSymbol": ""
+```
+
+After choosing, replace the empty value—for example:
+
+```json
+"sfSymbol": "cloud.rain.fill"
+```
 
 ## Screenshots
 
@@ -51,12 +79,12 @@ iPhone screenshots supplied by the maintainer on September 3, 2026, showing the 
 
 ## Requirements
 
-- A Mac with Xcode 15.2 or later and an installed iOS SDK.
+- A Mac with Xcode 15.2 or later and an installed iOS SDK. Xcode 16 or later is required to include iOS 18 Control Center controls.
 - iPhone with iOS 17.0 or later.
 - Python 3.9 or later, used only during development/building.
 - For installation on a physical phone: your own Apple account configured in Xcode and a development signing team.
 
-The project's deployment target is iOS 17.0. The development iMac currently uses Xcode 15.2 with the iOS 17.2 SDK. A newer phone can run this build, but that does not make it a build made with a newer SDK. Check newer SDKs separately before releasing with them.
+The project's deployment target is iOS 17.0. Live Activities are available on iOS 17; configurable Control Center and Lock Screen controls require iOS 18 and an Xcode 16-or-later build. Older builds and devices keep the in-app and Now Playing controls.
 
 ## Getting started
 
@@ -136,6 +164,7 @@ Limitations to know before using or contributing:
 - Light and dark appearances are implemented. At the largest accessibility text sizes, some symbols outgrow their buttons and the header text truncates. White text can be difficult to read over pale gradients. VoiceOver, Reduce Motion, and Reduce Transparency still need complete manual verification.
 - Fades and the sleep timer are not sample-accurate or hard real-time guarantees. Their timing can be affected by operating-system scheduling.
 - The local iOS 17.2 simulators previously stalled. The successful device build does not establish compatibility with every simulator or newer SDK.
+- The app has been built, installed, and launched on a physical iPhone 15 Pro. Live Activity presentation, Dynamic Island deep linking, and iOS 18 controls still require a complete manual interaction check on supported physical devices after SF Symbols have been assigned to the local sound JSON files.
 
 ### Run the tests
 

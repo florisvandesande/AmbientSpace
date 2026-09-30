@@ -114,6 +114,14 @@
         }
       }
     },
+    "Ambient sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Umgebungsgeräusch" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ambient sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Son d’ambiance" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Omgevingsgeluid" } }
+      }
+    },
     "AmbientSpace" : {
       "localizations" : {
         "de" : {
@@ -364,6 +372,14 @@
             "value" : "Kies een omgeving"
           }
         }
+      }
+    },
+    "Choose sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch auswählen" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Choisir un son" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Kies geluid" } }
       }
     },
     "Close" : {
@@ -763,6 +779,14 @@
         }
       }
     },
+    "Play a random sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zufälliges Geräusch abspielen" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play a random sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire un son aléatoire" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel een willekeurig geluid af" } }
+      }
+    },
     "Play a sound before setting the sleep timer." : {
       "localizations" : {
         "de" : {
@@ -789,6 +813,22 @@
             "value" : "Start eerst een geluid om de slaaptimer in te stellen."
           }
         }
+      }
+    },
+    "Play random sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zufälliges Geräusch abspielen" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play random sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire un son aléatoire" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel willekeurig geluid af" } }
+      }
+    },
+    "Play sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch abspielen" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire le son" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel geluid af" } }
       }
     },
     "Playback could not resume. Try again." : {
@@ -876,6 +916,14 @@
         }
       }
     },
+    "Sound" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch" } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sound" } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Son" } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Geluid" } }
+      }
+    },
     "Start custom timer" : {
       "localizations" : {
         "de" : {
@@ -902,6 +950,22 @@
             "value" : "Start aangepaste timer"
           }
         }
+      }
+    },
+    "Starts a random AmbientSpace sound." : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Startet ein zufälliges AmbientSpace-Geräusch." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Starts a random AmbientSpace sound." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lance un son AmbientSpace aléatoire." } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Start een willekeurig AmbientSpace-geluid." } }
+      }
+    },
+    "Starts the selected AmbientSpace sound." : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Startet das ausgewählte AmbientSpace-Geräusch." } },
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Starts the selected AmbientSpace sound." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lance le son AmbientSpace sélectionné." } },
+        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Start het geselecteerde AmbientSpace-geluid." } }
       }
     },
     "The audio catalog could not be read. Check the audio folders and rebuild." : {

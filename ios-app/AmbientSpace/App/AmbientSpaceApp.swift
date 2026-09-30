@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct AmbientSpaceApp: App {
-    @StateObject private var playback = AudioPlaybackController()
+    @StateObject private var playback = AudioPlaybackController.shared
 
     var body: some Scene {
         WindowGroup {

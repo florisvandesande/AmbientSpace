@@ -58,7 +58,27 @@ final class RemoteControlCoordinator {
             information[MPNowPlayingInfoPropertyPlaybackQueueIndex] = queueIndex
         }
 
-        if let coverURL = track.coverURL(in: bundle),
+        if let symbolName = track.displaySFSymbol,
+           let symbol = UIImage(systemName: symbolName) {
+            let image = symbol.withTintColor(.label, renderingMode: .alwaysOriginal)
+            information[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(
+                boundsSize: CGSize(width: 512, height: 512)
+            ) { size in
+                let renderer = UIGraphicsImageRenderer(size: size)
+                return renderer.image { _ in
+                    UIColor.systemBackground.setFill()
+                    UIRectFill(CGRect(origin: .zero, size: size))
+                    let side = min(size.width, size.height) * 0.5
+                    let rect = CGRect(
+                        x: (size.width - side) / 2,
+                        y: (size.height - side) / 2,
+                        width: side,
+                        height: side
+                    )
+                    image.draw(in: rect)
+                }
+            }
+        } else if let coverURL = track.coverURL(in: bundle),
            let image = UIImage(contentsOfFile: coverURL.path) {
             information[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(
                 boundsSize: image.size

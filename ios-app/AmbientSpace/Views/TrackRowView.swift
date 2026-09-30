@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct TrackRowView: View {
     let track: AudioTrack
@@ -9,6 +10,12 @@ struct TrackRowView: View {
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     private var gradient: TrackGradient { track.rowGradient(isPlaying: isPlaying) }
+    private var idleIconName: String {
+        guard let symbol = track.displaySFSymbol, UIImage(systemName: symbol) != nil else {
+            return "play.fill"
+        }
+        return symbol
+    }
 
     func toggleBoth() {
         onTogglePlayback()
@@ -53,7 +60,7 @@ struct TrackRowView: View {
                 }
 
                 HStack(spacing: 0) {
-                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                    Image(systemName: isPlaying ? "pause.fill" : idleIconName)
                         .font(.body.weight(.bold))
                         .foregroundStyle(.white)
                 }

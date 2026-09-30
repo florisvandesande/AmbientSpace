@@ -35,6 +35,7 @@ Copy this example, choosing an unused positive `index`:
   "description": "Een rustige zomerse regenbui met langzaam bewegende donder.",
   "colorStart": "#18324A",
   "colorEnd": "#6E8FA8",
+  "sfSymbol": "",
   "translations": {
     "en": {
       "title": "Summer storm",
@@ -58,10 +59,13 @@ Copy this example, choosing an unused positive `index`:
 - `index` determines the list order. It must be a unique positive integer; gaps are allowed.
 - `title`, `subtitle`, and `description` must be non-empty strings. Existing recordings use Dutch as the original language.
 - Colors must contain exactly six hexadecimal digits after `#`.
-- `translations` is optional. Each supplied language needs all three text fields. Supported keys are `nl`, `en`, `fr`, and `de`.
+- `sfSymbol` is optional. Use an exact SF Symbols name such as `cloud.rain.fill`, or leave it as an empty string while choosing an icon. The app then keeps showing the normal Play button. A valid symbol replaces Play in the library, appears in system playback artwork, and represents the sound in its Live Activity and configured system control. Once playback starts, the library button always changes to Pause.
+- `translations` is optional. Each supplied language needs all three text fields. Supported keys are `nl`, `en`, `fr`, `de`, `es`, `it`, and `pt-BR`.
 - Missing translations fall back to the original fields; existing metadata needs no migration.
 - Titles and descriptions are plain text, not Markdown or HTML.
-- The app and foreground media controls use the same translated recording metadata.
+- The app, foreground media controls, system actions, and Live Activity use the same translated recording metadata.
+
+See the [SF Symbols overview](../README.md#suggested-weather-and-nature-symbols) for suggested names and rendered examples. Availability varies by iOS version; verify each chosen name on the oldest supported iOS release.
 
 ## 3. Validate safely
 

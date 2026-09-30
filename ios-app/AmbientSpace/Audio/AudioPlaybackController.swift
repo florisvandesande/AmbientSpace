@@ -4,6 +4,7 @@ import OSLog
 
 @MainActor
 final class AudioPlaybackController: ObservableObject {
+    static let shared = AudioPlaybackController()
     static let crossfadeDuration: TimeInterval = 6
     static let pauseFadeDuration: TimeInterval = 0.35
 
@@ -20,6 +21,7 @@ final class AudioPlaybackController: ObservableObject {
     private let engine: AudioEngineType
     private let audioSession: AudioSessionManaging
     private let remoteControl: RemoteControlCoordinator?
+    private let liveActivity: LiveActivityCoordinator?
     private let logger = Logger(
         subsystem: "com.florisvandesande.AmbientSpace",
         category: "AudioPlayback"
@@ -41,6 +43,7 @@ final class AudioPlaybackController: ObservableObject {
         audioSession = suppliedAudioSession ?? AudioSessionManager()
         sleepTimer = SleepTimerController(now: now)
         remoteControl = usesRemoteControls ? RemoteControlCoordinator(bundle: bundle) : nil
+        liveActivity = usesRemoteControls ? LiveActivityCoordinator() : nil
 
         if let suppliedTracks {
             tracks = suppliedTracks.sorted { $0.index < $1.index }
@@ -96,6 +99,7 @@ final class AudioPlaybackController: ObservableObject {
             isPlaying = true
             engineHasTrack = true
             refreshRemoteInformation()
+            refreshLiveActivity()
         } catch let error as AudioEngineError {
             presentError(error.localizedDescription)
             logger.error("Track playback failed: \(error.localizedDescription, privacy: .public)")
@@ -113,6 +117,7 @@ final class AudioPlaybackController: ObservableObject {
         engine.pause(fadeDuration: Self.pauseFadeDuration)
         isPlaying = false
         refreshRemoteInformation()
+        refreshLiveActivity()
     }
 
     func resume() {
@@ -136,6 +141,7 @@ final class AudioPlaybackController: ObservableObject {
             engine.resume(fadeDuration: Self.pauseFadeDuration)
             isPlaying = true
             refreshRemoteInformation()
+            refreshLiveActivity()
         } catch {
             presentError(String(localized: "Playback could not resume. Try again."))
             logger.error("Resume failed: \(error.localizedDescription, privacy: .public)")
@@ -268,6 +274,7 @@ final class AudioPlaybackController: ObservableObject {
         engineHasTrack = false
         isPlaying = false
         refreshRemoteInformation()
+        refreshLiveActivity()
         do {
             try audioSession.deactivate()
         } catch {
@@ -281,6 +288,10 @@ final class AudioPlaybackController: ObservableObject {
             return
         }
         remoteControl?.update(track: currentTrack, isPlaying: isPlaying, queue: tracks)
+    }
+
+    private func refreshLiveActivity() {
+        liveActivity?.update(track: currentTrack, isPlaying: isPlaying)
     }
 
     private func presentError(_ message: String) {

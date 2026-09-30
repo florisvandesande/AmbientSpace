@@ -126,6 +126,33 @@ class AudioCatalogBuilderTests(unittest.TestCase):
         result = json.loads(build_catalog(self.source, self.destination).read_text())
         self.assertEqual(result["tracks"][0]["translations"], metadata["translations"])
 
+    def test_empty_sf_symbol_is_treated_as_unconfigured(self) -> None:
+        track = self.create_track("rain")
+        path = track / "metadata.json"
+        metadata = json.loads(path.read_text())
+        metadata["sfSymbol"] = ""
+        path.write_text(json.dumps(metadata))
+        result = json.loads(build_catalog(self.source, self.destination).read_text())
+        self.assertIsNone(result["tracks"][0]["sfSymbol"])
+
+    def test_sf_symbol_is_trimmed_and_included(self) -> None:
+        track = self.create_track("rain")
+        path = track / "metadata.json"
+        metadata = json.loads(path.read_text())
+        metadata["sfSymbol"] = "  cloud.rain.fill  "
+        path.write_text(json.dumps(metadata))
+        result = json.loads(build_catalog(self.source, self.destination).read_text())
+        self.assertEqual(result["tracks"][0]["sfSymbol"], "cloud.rain.fill")
+
+    def test_non_string_sf_symbol_is_rejected(self) -> None:
+        track = self.create_track("rain")
+        path = track / "metadata.json"
+        metadata = json.loads(path.read_text())
+        metadata["sfSymbol"] = 42
+        path.write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(CatalogError, "sfSymbol"):
+            scan_tracks(self.source)
+
     def test_symlink_media_is_rejected(self) -> None:
         track = self.create_track("rain")
         (track / "cover.jpg").unlink()

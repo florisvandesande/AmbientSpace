@@ -59,6 +59,16 @@ final class AudioCatalogTests: XCTestCase {
         XCTAssertEqual(track.localizedText(language: "de").title, track.title)
     }
 
+    func testRegionSpecificTranslationIsPreferred() {
+        var track = makeTrack(id: "rain", index: 1)
+        track.translations = [
+            "pt": AudioTrackText(title: "Chuva", subtitle: "Suave", description: "Chuva."),
+            "pt-BR": AudioTrackText(title: "Chuva brasileira", subtitle: "Suave", description: "Chuva.")
+        ]
+        XCTAssertEqual(track.localizedText(language: "pt-BR").title, "Chuva brasileira")
+        XCTAssertEqual(track.localizedText(language: "pt-PT").title, "Chuva")
+    }
+
     func testEmptyQueueReturnsNoTrack() {
         XCTAssertNil(PlaybackQueue(tracks: []).next(after: nil))
         XCTAssertNil(PlaybackQueue(tracks: []).previous(before: nil))
@@ -79,7 +89,8 @@ final class AudioCatalogTests: XCTestCase {
                   "colorStart": "#18324A",
                   "colorEnd": "#6E8FA8",
                   "audioPath": "audio-files/zomerstorm/audio.m4a",
-                  "coverPath": "audio-files/zomerstorm/cover.jpg"
+                  "coverPath": "audio-files/zomerstorm/cover.jpg",
+                  "sfSymbol": "cloud.bolt.rain.fill"
                 }
               ]
             }
@@ -90,6 +101,7 @@ final class AudioCatalogTests: XCTestCase {
 
         XCTAssertEqual(catalog.schemaVersion, 1)
         XCTAssertEqual(catalog.tracks.first?.id, "zomerstorm")
+        XCTAssertEqual(catalog.tracks.first?.displaySFSymbol, "cloud.bolt.rain.fill")
     }
 
     func testQueueWrapsInBothDirections() {
@@ -211,7 +223,8 @@ private func makeTrack(id: String, index: Int) -> AudioTrack {
         colorStart: "#18324A",
         colorEnd: "#6E8FA8",
         audioPath: "missing-audio.m4a",
-        coverPath: "missing-cover.jpg"
+        coverPath: "missing-cover.jpg",
+        sfSymbol: nil
     )
 }
 

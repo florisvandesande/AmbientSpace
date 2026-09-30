@@ -8,6 +8,8 @@
 Icon?
 !assets/icons/
 !assets/icons/*
+!docs/icons/
+!docs/icons/*
 ._*
 .Spotlight-V100
 .Trashes
@@ -89,6 +91,12 @@ PROJECT_PLAN.md
 # Project sync local state
 ################################################################################
 .project-sync-state/
+.sync/*
+!.sync/.gitkeep
+
+# Repository-local generated and disposable work
+.temporary/*
+!.temporary/.gitkeep
 
 ################################################################################
 # Xcode user-specific files

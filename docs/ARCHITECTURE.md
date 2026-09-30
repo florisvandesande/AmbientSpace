@@ -8,7 +8,10 @@
 - `Audio/AudioPlaybackController.swift` coordinates playback, session mode, interruptions, remote controls, errors, and the sleep timer.
 - `Audio/DualPlayerAudioEngine.swift` handles the two looping players and overlap between outgoing/incoming recordings.
 - `Audio/AudioSessionManager.swift` is the only place that configures the system audio session.
-- `Audio/RemoteControlCoordinator.swift` supplies foreground Lock Screen metadata and media commands.
+- `Audio/RemoteControlCoordinator.swift` supplies foreground Lock Screen and Control Center metadata and media commands.
+- `Audio/LiveActivityCoordinator.swift` owns the one current playback Live Activity.
+- `App/PlaybackIntents.swift` exposes random and selected-sound playback to App Shortcuts and iOS 18 controls.
+- `AmbientSpaceWidgets/` renders the Live Activity and, when compiled with Xcode 16 or later, the configurable system controls.
 - `Audio/SleepTimerController.swift` uses an absolute end date, rather than counting timer callbacks.
 - `Views/` contains the SwiftUI interface.
 - `Support/BottomPopover.swift` anchors native popovers below the buttons, including on the iOS 17 SDK.
@@ -25,7 +28,7 @@ Background mode uses a playback session with `mixWithOthers`. Foreground mode us
 
 ## Timing and interruptions
 
-The player renders fades every 50 milliseconds while playing, using a monotonic clock. The sleep timer uses wall-clock time and refreshes when the app returns to the foreground. The selected end time is not extended by switching sounds or pausing.
+The player renders fades every 50 milliseconds while playing, using a monotonic clock. Two players alternate indefinitely so the final six seconds of a recording crossfade into its beginning. The sleep timer uses wall-clock time and refreshes when the app returns to the foreground. The selected end time is not extended by switching sounds or pausing.
 
 A headphone disconnect pauses playback. An interruption resumes only if the app was playing before the interruption and iOS allows resumption. App volume does not activate a session or change audio mode.
 

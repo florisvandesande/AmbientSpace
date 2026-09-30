@@ -11,12 +11,13 @@ import sys
 import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any, Optional, Sequence
 
 
 HEX_COLOR_PATTERN = re.compile(r"^#[0-9A-Fa-f]{6}$")
 REQUIRED_FILES = ("audio.m4a", "cover.jpg", "metadata.json")
 REQUIRED_TEXT_FIELDS = ("title", "subtitle", "description")
+SUPPORTED_TRANSLATION_LANGUAGES = {"nl", "en", "fr", "de", "es", "it", "pt-BR"}
 
 
 class CatalogError(ValueError):
@@ -34,6 +35,7 @@ class TrackMetadata:
     description: str
     color_start: str
     color_end: str
+    sf_symbol: Optional[str] = None
     translations: dict[str, dict[str, str]] = field(default_factory=dict)
 
     def as_catalog_entry(self) -> dict[str, Any]:
@@ -47,6 +49,7 @@ class TrackMetadata:
             "colorEnd": self.color_end.upper(),
             "audioPath": f"audio-files/{self.folder_name}/audio.m4a",
             "coverPath": f"audio-files/{self.folder_name}/cover.jpg",
+            "sfSymbol": self.sf_symbol,
             "translations": self.translations,
         }
 
@@ -138,13 +141,20 @@ def validate_track(track_directory: Path) -> TrackMetadata:
             )
         color_values[field_name] = raw_value
 
+    raw_sf_symbol = raw_metadata.get("sfSymbol")
+    if raw_sf_symbol is not None and not isinstance(raw_sf_symbol, str):
+        raise CatalogError(
+            f"{track_directory / 'metadata.json'}: 'sfSymbol' must be a string or null."
+        )
+    sf_symbol = raw_sf_symbol.strip() if isinstance(raw_sf_symbol, str) else None
+
     validate_file_signatures(track_directory)
 
     translations = raw_metadata.get("translations", {})
     if not isinstance(translations, dict):
         raise CatalogError(f"{track_directory / 'metadata.json'}: 'translations' must be an object.")
     for language, translation in translations.items():
-        if language not in {"nl", "en", "fr", "de"}:
+        if language not in SUPPORTED_TRANSLATION_LANGUAGES:
             raise CatalogError(f"{track_directory / 'metadata.json'}: unsupported translation language '{language}'.")
         if not isinstance(translation, dict) or any(
             not isinstance(translation.get(key), str) or not translation[key].strip()
@@ -160,6 +170,7 @@ def validate_track(track_directory: Path) -> TrackMetadata:
         description=text_values["description"],
         color_start=color_values["colorStart"],
         color_end=color_values["colorEnd"],
+        sf_symbol=sf_symbol or None,
         translations={
             language: {key: text[key].strip() for key in REQUIRED_TEXT_FIELDS}
             for language, text in translations.items()

@@ -44,6 +44,9 @@ Use at least two real recordings of twelve seconds or longer.
 - Pause/resume rapidly, then pause normally. Confirm that the visible play state matches the audible state.
 - Lock the phone, leave the app, and return. Confirm background playback and timer behavior.
 - Switch to foreground mode: check title, subtitle, cover, play/pause, and previous/next with wraparound. Switch back and check the other app's controls.
+- With a sound that has `sfSymbol` configured, verify the symbol in the library, foreground Lock Screen artwork, Control Center, and the Live Activity. Verify an empty value falls back to Play in the library and cover artwork in foreground mode.
+- On iOS 18 or later, add both AmbientSpace controls to Control Center and the Lock Screen. Verify random playback and a configured sound while the app is closed, backgrounded, and open.
+- On a Dynamic Island device, start playback and verify the current sound symbol and name. Switch sounds, pause, and resume; then tap the Live Activity and confirm AmbientSpace opens.
 - Disconnect headphones and simulate an interruption. Check that audio does not restart unexpectedly.
 - Set a one-minute timer. During the final fifteen seconds, change app volume or switch recordings. Confirm the deadline is not extended and the fade is not reset. Cancel a fading timer and confirm the selected app volume returns.
 - Open volume and timer popovers. Both should appear below their buttons; tap outside to dismiss.
