@@ -6,7 +6,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PROJECT_PATH="$ROOT_DIR/ios-app/AmbientSpace.xcodeproj"
 SCHEME="AmbientSpace"
 APP_NAME="AmbientSpace"
-BUNDLE_ID="${BUNDLE_ID:-com.florisvandesande.AmbientSpace}"
+BUNDLE_ID="${BUNDLE_ID:-com.example.AmbientSpace}"
 CONFIGURATION="${CONFIGURATION:-Debug}"
 DEVELOPMENT_TEAM="${DEVELOPMENT_TEAM:-}"
 DERIVED_DATA_PATH="${DERIVED_DATA_PATH:-/tmp/AmbientSpaceDeviceBuild}"
@@ -24,12 +24,12 @@ Builds, installs, launches, and verifies AmbientSpace on a physical iPhone.
 Options:
   --device ID            Explicit device identifier from devicectl
   --configuration NAME   Xcode build configuration. Default: $CONFIGURATION
-  --team ID              Your Apple Developer team identifier (required)
+  --team ID              Override the automatically detected Apple Developer team
   --list                 Show paired physical iPhones and exit
   -h, --help             Show this help message
 
 Environment variables:
-  DEVELOPMENT_TEAM       Alternative to --team; no personal team is stored here
+  DEVELOPMENT_TEAM       Alternative team override; no personal team is stored here
   BUNDLE_ID              Bundle identifier for your copy. Default: $BUNDLE_ID
   DERIVED_DATA_PATH      Xcode build directory. Default: $DERIVED_DATA_PATH
 EOF
@@ -170,6 +170,80 @@ PY
     fi
 }
 
+detect_development_team() {
+    DEVELOPMENT_TEAM="$(python3 - "$BUNDLE_ID" "$DERIVED_DATA_PATH" <<'PY'
+import plistlib
+import subprocess
+import sys
+from pathlib import Path
+
+bundle_id = sys.argv[1]
+derived_data_path = Path(sys.argv[2])
+profile_paths = [
+    derived_data_path / "Build/Products/Debug-iphoneos/AmbientSpace.app/embedded.mobileprovision",
+    derived_data_path / "Build/Products/Release-iphoneos/AmbientSpace.app/embedded.mobileprovision",
+]
+
+for directory in (
+    Path.home() / "Library/Developer/Xcode/UserData/Provisioning Profiles",
+    Path.home() / "Library/MobileDevice/Provisioning Profiles",
+):
+    if directory.is_dir():
+        profile_paths.extend(directory.glob("*.mobileprovision"))
+
+exact_teams = set()
+wildcard_teams = set()
+seen_paths = set()
+
+for profile_path in profile_paths:
+    if profile_path in seen_paths or not profile_path.is_file():
+        continue
+    seen_paths.add(profile_path)
+
+    result = subprocess.run(
+        ["security", "cms", "-D", "-i", str(profile_path)],
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        continue
+
+    try:
+        profile = plistlib.loads(result.stdout)
+    except (plistlib.InvalidFileException, ValueError):
+        continue
+
+    teams = profile.get("TeamIdentifier") or []
+    application_identifier = profile.get("Entitlements", {}).get("application-identifier", "")
+    if not teams or not application_identifier:
+        continue
+
+    team = teams[0]
+    if application_identifier in {f"{team}.{bundle_id}", f"{team}.{bundle_id}.Widgets"}:
+        exact_teams.add(team)
+    elif application_identifier == f"{team}.*":
+        wildcard_teams.add(team)
+
+candidates = exact_teams or wildcard_teams
+if len(candidates) == 1:
+    print(next(iter(candidates)))
+elif len(candidates) > 1:
+    print(
+        "Multiple signing teams match the bundle identifier. Use --team ID once to select one.",
+        file=sys.stderr,
+    )
+    sys.exit(2)
+else:
+    print(
+        "No local provisioning profile matches the bundle identifier. Open the project in Xcode once "
+        "and select a signing team, or use --team ID for the first deployment.",
+        file=sys.stderr,
+    )
+    sys.exit(2)
+PY
+)" || fail "Could not detect an Apple Developer team automatically."
+}
+
 validate_selected_iphone() {
     local devices_json
     local validation_error
@@ -291,6 +365,7 @@ main() {
     require_command xcodebuild
     require_command python3
     require_command codesign
+    require_command security
 
     [[ -d "$PROJECT_PATH" ]] || fail "Xcode project not found at: $PROJECT_PATH"
 
@@ -305,7 +380,8 @@ main() {
     validate_selected_iphone
 
     if [[ -z "$DEVELOPMENT_TEAM" ]]; then
-        fail "No signing team selected. Run: $0 --team YOUR_TEAM_ID --device $DEVICE_ID"
+        detect_development_team
+        echo "Using automatically detected Apple Developer team: $DEVELOPMENT_TEAM"
     fi
     [[ "$CONFIGURATION" == "Debug" || "$CONFIGURATION" == "Release" ]] || fail "Use Debug or Release for --configuration."
     [[ "$POST_INSTALL_RETRIES" =~ ^[1-9][0-9]*$ ]] || fail "POST_INSTALL_RETRIES must be a positive integer."

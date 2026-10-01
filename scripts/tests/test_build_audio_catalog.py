@@ -63,6 +63,14 @@ class AudioCatalogBuilderTests(unittest.TestCase):
         catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
         self.assertEqual([track["id"] for track in catalog["tracks"]], ["eerste", "laatste"])
 
+    def test_metadata_only_catalog_omits_media(self) -> None:
+        self.create_track("rain", index=1)
+        catalog_path = build_catalog(self.source, self.destination, metadata_only=True)
+        catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(catalog["tracks"][0]["id"], "rain")
+        self.assertFalse((catalog_path.parent / "rain").exists())
+
     def test_missing_file_is_rejected(self) -> None:
         track_directory = self.create_track("onvolledig")
         (track_directory / "cover.jpg").unlink()

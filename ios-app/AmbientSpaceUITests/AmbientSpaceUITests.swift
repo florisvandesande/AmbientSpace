@@ -45,7 +45,15 @@ final class AmbientSpaceUITests: XCTestCase {
     }
 
     func testSystemLanguageTranslations() {
-        for (language, label) in [("nl", "Kies een omgeving"), ("en", "Choose an atmosphere"), ("fr", "Choisissez une ambiance"), ("de", "Wähle eine Atmosphäre")] {
+        for (language, label) in [
+            ("nl", "Kies een omgeving"),
+            ("en", "Choose an atmosphere"),
+            ("fr", "Choisissez une ambiance"),
+            ("de", "Wähle eine Atmosphäre"),
+            ("es", "Elige un ambiente"),
+            ("it", "Scegli un’atmosfera"),
+            ("pt-BR", "Escolha um ambiente"),
+        ] {
             let app = launch(language: language)
             XCTAssertTrue(app.staticTexts[label].waitForExistence(timeout: 5), "Missing translation for \(language)")
             attachScreenshot("language-\(language)")

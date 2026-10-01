@@ -1,4 +1,4 @@
-"""Keep the four language catalogs complete and format-safe."""
+"""Keep all required language catalogs complete and format-safe."""
 
 import json
 import re
@@ -15,7 +15,7 @@ class LocalizationTests(unittest.TestCase):
         for key, entry in catalog["strings"].items():
             with self.subTest(key=key):
                 localizations = entry["localizations"]
-                self.assertEqual(set(localizations), {"en", "nl", "fr", "de"})
+                self.assertEqual(set(localizations), {"en", "nl", "fr", "de", "es", "it", "pt-BR"})
                 placeholders = sorted(re.findall(r"%(?:lld|@)", key))
                 for language, value in localizations.items():
                     text = value["stringUnit"]["value"]

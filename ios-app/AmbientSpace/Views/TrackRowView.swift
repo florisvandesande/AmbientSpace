@@ -30,9 +30,13 @@ struct TrackRowView: View {
                         Text(track.displayTitle)
                             .font(.title3.weight(.bold))
                             .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         Text(track.displaySubtitle)
                             .font(.subheadline.weight(.medium))
                             .foregroundStyle(.white)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 

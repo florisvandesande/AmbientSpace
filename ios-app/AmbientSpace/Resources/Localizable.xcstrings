@@ -27,6 +27,24 @@
             "state" : "translated",
             "value" : "%@, %@"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@, %@"
+          }
         }
       }
     },
@@ -55,6 +73,24 @@
             "state" : "translated",
             "value" : "%lld uur"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld h"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld h"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld h"
+          }
         }
       }
     },
@@ -79,6 +115,24 @@
           }
         },
         "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld min"
@@ -111,15 +165,71 @@
             "state" : "translated",
             "value" : "Voeg een geluidsmap toe aan audio-files en bouw de app opnieuw. De README in die map beschrijft ieder bestand stap voor stap."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade una carpeta de sonido a audio-files y recompila la app. El README de esa carpeta explica cada archivo paso a paso."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiungi una cartella audio ad audio-files e ricompila l’app. Il README in quella cartella spiega ogni file passo per passo."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicione uma pasta de som a audio-files e recompile o app. O README dessa pasta explica cada arquivo passo a passo."
+          }
         }
       }
     },
     "Ambient sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Umgebungsgeräusch" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ambient sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Son d’ambiance" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Omgevingsgeluid" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umgebungsgeräusch"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ambient sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son d’ambiance"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omgevingsgeluid"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido ambiental"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suono ambientale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som ambiente"
+          }
+        }
       }
     },
     "AmbientSpace" : {
@@ -143,6 +253,24 @@
           }
         },
         "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "AmbientSpace"
@@ -175,6 +303,24 @@
             "state" : "translated",
             "value" : "AmbientSpace kan niet doorgaan"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace no puede continuar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace non può continuare"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O AmbientSpace não pode continuar"
+          }
         }
       }
     },
@@ -202,6 +348,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "AmbientSpace mengt met andere apps en laat hun mediabediening beschikbaar."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace se mezcla con otras apps y mantiene disponibles sus controles multimedia."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace si combina con altre app e lascia disponibili i loro controlli multimediali."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O AmbientSpace mistura o áudio com outros apps e mantém os controles de mídia deles disponíveis."
           }
         }
       }
@@ -231,6 +395,24 @@
             "state" : "translated",
             "value" : "AmbientSpace neemt de mediabediening over en toont de huidige cover."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace controla los controles multimedia y muestra la portada actual."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace assume il controllo multimediale e mostra la copertina attuale."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O AmbientSpace assume os controles de mídia e mostra a capa atual."
+          }
         }
       }
     },
@@ -258,6 +440,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "AmbientSpace-volume"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volumen de AmbientSpace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume di AmbientSpace"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume do AmbientSpace"
           }
         }
       }
@@ -287,6 +487,24 @@
             "state" : "translated",
             "value" : "Versie %lld van de audiocatalogus wordt niet ondersteund."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La versión %lld del catálogo de audio no es compatible."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La versione %lld del catalogo audio non è supportata."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A versão %lld do catálogo de áudio não é compatível."
+          }
         }
       }
     },
@@ -314,6 +532,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Achtergrond"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segundo plano"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In background"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Segundo plano"
           }
         }
       }
@@ -343,6 +579,24 @@
             "state" : "translated",
             "value" : "Annuleer slaaptimer"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar temporizador"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annulla timer di spegnimento"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar timer de desligamento"
+          }
         }
       }
     },
@@ -371,15 +625,71 @@
             "state" : "translated",
             "value" : "Kies een omgeving"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige un ambiente"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli un’atmosfera"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha um ambiente"
+          }
         }
       }
     },
     "Choose sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch auswählen" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Choisir un son" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Kies geluid" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geräusch auswählen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisir un son"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies geluid"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elegir sonido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli suono"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolher som"
+          }
+        }
       }
     },
     "Close" : {
@@ -406,6 +716,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sluiten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar"
           }
         }
       }
@@ -436,6 +764,24 @@
             "state" : "translated",
             "value" : "Ingeklapt"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contraído"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compresso"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recolhido"
+          }
         }
       }
     },
@@ -463,6 +809,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aangepaste duur"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duración personalizada"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durata personalizzata"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duração personalizada"
           }
         }
       }
@@ -493,6 +857,24 @@
             "state" : "translated",
             "value" : "Uitgeklapt"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expandido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Espanso"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expandido"
+          }
         }
       }
     },
@@ -521,6 +903,24 @@
             "state" : "translated",
             "value" : "Voorgrond"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primer plano"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In primo piano"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro plano"
+          }
         }
       }
     },
@@ -548,6 +948,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voorgrondmodus"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo en primer plano"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modalità in primo piano"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo em primeiro plano"
           }
         }
       }
@@ -578,6 +996,24 @@
             "state" : "translated",
             "value" : "Verberg beschrijving"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar descripción"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nascondi descrizione"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocultar descrição"
+          }
         }
       }
     },
@@ -605,6 +1041,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Uren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Horas"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ore"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Horas"
           }
         }
       }
@@ -634,6 +1088,24 @@
             "state" : "translated",
             "value" : "Minuten"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minuti"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minutos"
+          }
         }
       }
     },
@@ -661,6 +1133,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nog geen geluiden"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún no hay sonidos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun suono"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ainda não há sons"
           }
         }
       }
@@ -690,6 +1180,24 @@
             "state" : "translated",
             "value" : "Nu klinkt: %@"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduciendo: %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In riproduzione: %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzindo: %@"
+          }
         }
       }
     },
@@ -717,6 +1225,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wijzigt alleen AmbientSpace. Het iPhone-volume en andere apps blijven ongewijzigd."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo cambia AmbientSpace. El volumen del iPhone y las demás apps no cambian."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica solo AmbientSpace. Il volume dell’iPhone e le altre app restano invariati."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altera apenas o AmbientSpace. O volume do iPhone e os outros apps não mudam."
           }
         }
       }
@@ -747,6 +1273,24 @@
             "state" : "translated",
             "value" : "Pauzeer %@"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metti in pausa %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausar %@"
+          }
         }
       }
     },
@@ -776,15 +1320,71 @@
             "state" : "translated",
             "value" : "Speel %@"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir %@"
+          }
         }
       }
     },
     "Play a random sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zufälliges Geräusch abspielen" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play a random sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire un son aléatoire" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel een willekeurig geluid af" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zufälliges Geräusch abspielen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play a random sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire un son aléatoire"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speel een willekeurig geluid af"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir un sonido aleatorio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci un suono casuale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir um som aleatório"
+          }
+        }
       }
     },
     "Play a sound before setting the sleep timer." : {
@@ -812,23 +1412,117 @@
             "state" : "translated",
             "value" : "Start eerst een geluid om de slaaptimer in te stellen."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduce un sonido antes de configurar el temporizador."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci un suono prima di impostare il timer di spegnimento."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduza um som antes de definir o timer de desligamento."
+          }
         }
       }
     },
     "Play random sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zufälliges Geräusch abspielen" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play random sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire un son aléatoire" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel willekeurig geluid af" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zufälliges Geräusch abspielen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play random sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire un son aléatoire"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speel willekeurig geluid af"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir sonido aleatorio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci suono casuale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir som aleatório"
+          }
+        }
       }
     },
     "Play sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch abspielen" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Play sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lire le son" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Speel geluid af" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geräusch abspielen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire le son"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speel geluid af"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir sonido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci suono"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir som"
+          }
+        }
       }
     },
     "Playback could not resume. Try again." : {
@@ -855,6 +1549,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Het afspelen kon niet worden hervat. Probeer opnieuw."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo reanudar la reproducción. Inténtalo de nuevo."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile riprendere la riproduzione. Riprova."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível retomar a reprodução. Tente novamente."
           }
         }
       }
@@ -885,6 +1597,24 @@
             "state" : "translated",
             "value" : "Toon beschrijving"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar descripción"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra descrizione"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar descrição"
+          }
         }
       }
     },
@@ -913,15 +1643,71 @@
             "state" : "translated",
             "value" : "Slaaptimer"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporizador de apagado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timer di spegnimento"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Timer de desligamento"
+          }
         }
       }
     },
     "Sound" : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Geräusch" } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sound" } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Son" } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Geluid" } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geräusch"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sound"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geluid"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suono"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som"
+          }
+        }
       }
     },
     "Start custom timer" : {
@@ -949,23 +1735,117 @@
             "state" : "translated",
             "value" : "Start aangepaste timer"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar temporizador personalizado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia timer personalizzato"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iniciar timer personalizado"
+          }
         }
       }
     },
     "Starts a random AmbientSpace sound." : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Startet ein zufälliges AmbientSpace-Geräusch." } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Starts a random AmbientSpace sound." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lance un son AmbientSpace aléatoire." } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Start een willekeurig AmbientSpace-geluid." } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet ein zufälliges AmbientSpace-Geräusch."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts a random AmbientSpace sound."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lance un son AmbientSpace aléatoire."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start een willekeurig AmbientSpace-geluid."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia un sonido aleatorio de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia un suono casuale di AmbientSpace."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia um som aleatório do AmbientSpace."
+          }
+        }
       }
     },
     "Starts the selected AmbientSpace sound." : {
       "localizations" : {
-        "de" : { "stringUnit" : { "state" : "translated", "value" : "Startet das ausgewählte AmbientSpace-Geräusch." } },
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Starts the selected AmbientSpace sound." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "Lance le son AmbientSpace sélectionné." } },
-        "nl" : { "stringUnit" : { "state" : "translated", "value" : "Start het geselecteerde AmbientSpace-geluid." } }
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet das ausgewählte AmbientSpace-Geräusch."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts the selected AmbientSpace sound."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lance le son AmbientSpace sélectionné."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start het geselecteerde AmbientSpace-geluid."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia el sonido seleccionado de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia il suono AmbientSpace selezionato."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia o som selecionado do AmbientSpace."
+          }
+        }
       }
     },
     "The audio catalog could not be read. Check the audio folders and rebuild." : {
@@ -992,6 +1872,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "De audiocatalogus kon niet worden gelezen. Controleer de audiomappen en bouw opnieuw."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo leer el catálogo de audio. Comprueba las carpetas de audio y vuelve a compilar."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile leggere il catalogo audio. Controlla le cartelle audio e ricompila."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível ler o catálogo de áudio. Verifique as pastas de áudio e recompile."
           }
         }
       }
@@ -1021,6 +1919,24 @@
             "state" : "translated",
             "value" : "De audiocatalogus ontbreekt. Bouw de app opnieuw vanuit Xcode."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falta el catálogo de audio. Vuelve a compilar la app en Xcode."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manca il catalogo audio. Ricompila l’app in Xcode."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O catálogo de áudio está ausente. Recompile o app no Xcode."
+          }
         }
       }
     },
@@ -1048,6 +1964,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Het audiobestand voor ‘%@’ kon niet worden geopend."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo abrir el archivo de audio de «%@»."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile aprire il file audio per “%@”."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível abrir o arquivo de áudio de “%@”."
           }
         }
       }
@@ -1077,6 +2011,24 @@
             "state" : "translated",
             "value" : "Het audiobestand voor ‘%@’ ontbreekt. Bouw de app opnieuw."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Falta el archivo de audio de «%@». Vuelve a compilar la app."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manca il file audio per “%@”. Ricompila l’app."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O arquivo de áudio de “%@” está ausente. Recompile o app."
+          }
         }
       }
     },
@@ -1104,6 +2056,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "De audiomodus kon niet worden gewijzigd. Probeer opnieuw."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo cambiar el modo de audio. Inténtalo de nuevo."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile cambiare la modalità audio. Riprova."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível alterar o modo de áudio. Tente novamente."
           }
         }
       }
@@ -1133,6 +2103,24 @@
             "state" : "translated",
             "value" : "Het geluid kon niet worden afgespeeld. Controleer het audiobestand en probeer opnieuw."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo reproducir la grabación. Comprueba el archivo de audio e inténtalo de nuevo."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile riprodurre la registrazione. Controlla il file audio e riprova."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível reproduzir a gravação. Verifique o arquivo de áudio e tente novamente."
+          }
         }
       }
     },
@@ -1160,6 +2148,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Het geluid wordt tijdens de laatste vijftien seconden geleidelijk zachter."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El sonido se desvanece durante los últimos quince segundos."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il suono sfuma negli ultimi quindici secondi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O som diminui gradualmente nos últimos quinze segundos."
           }
         }
       }
@@ -1189,6 +2195,24 @@
             "state" : "translated",
             "value" : "Dit audiobestand duurt slechts %lld seconden. Gebruik minimaal twaalf seconden."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta grabación solo dura %lld segundos. Usa al menos doce segundos."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa registrazione dura solo %lld secondi. Usane almeno dodici."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta gravação tem apenas %lld segundos. Use pelo menos doze segundos."
+          }
         }
       }
     },
@@ -1216,6 +2240,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Resterende tijd: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo restante: %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo rimanente: %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempo restante: %@"
           }
         }
       }
@@ -1245,6 +2287,24 @@
             "state" : "translated",
             "value" : "Onbekende fout"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error desconocido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore sconosciuto"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erro desconhecido"
+          }
         }
       }
     },
@@ -1269,6 +2329,24 @@
           }
         },
         "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volumen"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume"
+          }
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Volume"
@@ -1300,6 +2378,1128 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Volume en audiomodus"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volumen y modo de audio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume e modalità audio"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volume e modo de áudio"
+          }
+        }
+      }
+    },
+    "Random" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Random"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willekeurig"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aléatoire"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zufällig"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aleatorio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casuale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aleatório"
+          }
+        }
+      }
+    },
+    "Play or pause" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play or pause"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afspelen of pauzeren"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire ou mettre en pause"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiedergabe oder Pause"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir o pausar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci o metti in pausa"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir ou pausar"
+          }
+        }
+      }
+    },
+    "Unavailable sound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unavailable sound"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Niet-beschikbaar geluid"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son indisponible"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht verfügbarer Klang"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido no disponible"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suono non disponibile"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som indisponível"
+          }
+        }
+      }
+    },
+    "This sound is no longer available. Choose another sound in the widget settings." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This sound is no longer available. Choose another sound in the widget settings."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dit geluid is niet meer beschikbaar. Kies een ander geluid in de widgetinstellingen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce son n’est plus disponible. Choisissez-en un autre dans les réglages du widget."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Klang ist nicht mehr verfügbar. Wähle in den Widget-Einstellungen einen anderen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este sonido ya no está disponible. Elige otro en los ajustes del widget."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo suono non è più disponibile. Scegline un altro nelle impostazioni del widget."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este som não está mais disponível. Escolha outro nos ajustes do widget."
+          }
+        }
+      }
+    },
+    "Pauses playback or starts a random AmbientSpace sound." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pauses playback or starts a random AmbientSpace sound."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pauzeert het afspelen of start een willekeurig AmbientSpace-geluid."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Met la lecture en pause ou lance un son AmbientSpace aléatoire."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausiert die Wiedergabe oder startet einen zufälligen AmbientSpace-Klang."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa la reproducción o inicia un sonido aleatorio de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mette in pausa la riproduzione o avvia un suono AmbientSpace casuale."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pausa a reprodução ou inicia um som aleatório do AmbientSpace."
+          }
+        }
+      }
+    },
+    "Starts or pauses the selected AmbientSpace sound." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts or pauses the selected AmbientSpace sound."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start of pauzeert het geselecteerde AmbientSpace-geluid."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lance ou met en pause le son AmbientSpace sélectionné."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet oder pausiert den ausgewählten AmbientSpace-Klang."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia o pausa el sonido seleccionado de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia o mette in pausa il suono AmbientSpace selezionato."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia ou pausa o som selecionado do AmbientSpace."
+          }
+        }
+      }
+    },
+    "Perform widget action" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perform widget action"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widgetactie uitvoeren"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exécuter l’action du widget"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget-Aktion ausführen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejecutar acción del widget"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esegui azione widget"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Executar ação do widget"
+          }
+        }
+      }
+    },
+    "Action" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actie"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktion"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acción"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Azione"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ação"
+          }
+        }
+      }
+    },
+    "AmbientSpace controls" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace controls"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace-bediening"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commandes AmbientSpace"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AmbientSpace-Steuerung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controles de AmbientSpace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controlli AmbientSpace"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controles do AmbientSpace"
+          }
+        }
+      }
+    },
+    "Choose up to nine sound controls." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose up to nine sound controls."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies maximaal negen geluidsknoppen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez jusqu’à neuf commandes sonores."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle bis zu neun Klangsteuerungen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige hasta nueve controles de sonido."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli fino a nove controlli audio."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha até nove controles de som."
+          }
+        }
+      }
+    },
+    "Lock Screen sound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock Screen sound"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lockscreen-geluid"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son de l’écran verrouillé"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sperrbildschirm-Klang"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido de la pantalla bloqueada"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suono schermata di blocco"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som da Tela Bloqueada"
+          }
+        }
+      }
+    },
+    "Choose the sound shown on the Lock Screen." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose the sound shown on the Lock Screen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kies het geluid dat op het lockscreen wordt getoond."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choisissez le son affiché sur l’écran verrouillé."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle den Klang für den Sperrbildschirm."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige el sonido que aparece en la pantalla bloqueada."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli il suono mostrato nella schermata di blocco."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escolha o som exibido na Tela Bloqueada."
+          }
+        }
+      }
+    },
+    "Configure widget" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configure widget"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget configureren"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurer le widget"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widget konfigurieren"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurar widget"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configura widget"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurar widget"
+          }
+        }
+      }
+    },
+    "Show and control a chosen AmbientSpace sound." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show and control a chosen AmbientSpace sound."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toon en bedien een gekozen AmbientSpace-geluid."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affichez et contrôlez un son AmbientSpace choisi."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige und steuere einen ausgewählten AmbientSpace-Klang."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muestra y controla un sonido elegido de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra e controlla un suono AmbientSpace scelto."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostre e controle um som escolhido do AmbientSpace."
+          }
+        }
+      }
+    },
+    "Position 1" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 1"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 1"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 1"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 1"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 1"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 1"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 1"
+          }
+        }
+      }
+    },
+    "Position 2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 2"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 2"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 2"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 2"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 2"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 2"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 2"
+          }
+        }
+      }
+    },
+    "Position 3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 3"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 3"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 3"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 3"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 3"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 3"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 3"
+          }
+        }
+      }
+    },
+    "Position 4" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 4"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 4"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 4"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 4"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 4"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 4"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 4"
+          }
+        }
+      }
+    },
+    "Position 5" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 5"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 5"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 5"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 5"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 5"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 5"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 5"
+          }
+        }
+      }
+    },
+    "Position 6" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 6"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 6"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 6"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 6"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 6"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 6"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 6"
+          }
+        }
+      }
+    },
+    "Position 7" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 7"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 7"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 7"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 7"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 7"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 7"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 7"
+          }
+        }
+      }
+    },
+    "Position 8" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 8"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 8"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 8"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 8"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 8"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 8"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 8"
+          }
+        }
+      }
+    },
+    "Position 9" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 9"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Positie 9"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 9"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Position 9"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posición 9"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posizione 9"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posição 9"
+          }
+        }
+      }
+    },
+    "Starts or pauses a selected AmbientSpace sound." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts or pauses a selected AmbientSpace sound."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start of pauzeert een geselecteerd AmbientSpace-geluid."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lance ou met en pause un son AmbientSpace sélectionné."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet oder pausiert einen ausgewählten AmbientSpace-Klang."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia o pausa un sonido seleccionado de AmbientSpace."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia o mette in pausa un suono AmbientSpace selezionato."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia ou pausa um som selecionado do AmbientSpace."
           }
         }
       }

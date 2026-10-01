@@ -60,6 +60,11 @@ def parse_arguments(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--source", required=True, type=Path)
     parser.add_argument("--destination", required=True, type=Path)
+    parser.add_argument(
+        "--metadata-only",
+        action="store_true",
+        help="Write only catalog.json for extensions that do not play bundled media.",
+    )
     return parser.parse_args(argv)
 
 
@@ -204,7 +209,7 @@ def scan_tracks(source: Path) -> list[TrackMetadata]:
     return sorted(tracks, key=lambda track: track.index)
 
 
-def build_catalog(source: Path, destination: Path) -> Path:
+def build_catalog(source: Path, destination: Path, *, metadata_only: bool = False) -> Path:
     source = source.resolve()
     destination = destination.resolve()
     final_audio_directory = destination / "audio-files"
@@ -218,12 +223,13 @@ def build_catalog(source: Path, destination: Path) -> Path:
     temporary_directory = Path(tempfile.mkdtemp(prefix=".audio-files-", dir=destination))
 
     try:
-        for track in tracks:
-            source_track = source / track.folder_name
-            output_track = temporary_directory / track.folder_name
-            output_track.mkdir(parents=True)
-            for filename in REQUIRED_FILES:
-                shutil.copy2(source_track / filename, output_track / filename)
+        if not metadata_only:
+            for track in tracks:
+                source_track = source / track.folder_name
+                output_track = temporary_directory / track.folder_name
+                output_track.mkdir(parents=True)
+                for filename in REQUIRED_FILES:
+                    shutil.copy2(source_track / filename, output_track / filename)
 
         catalog = {
             "schemaVersion": 1,
@@ -247,7 +253,11 @@ def build_catalog(source: Path, destination: Path) -> Path:
 def main(argv: Sequence[str] | None = None) -> int:
     arguments = parse_arguments(argv)
     try:
-        catalog_path = build_catalog(arguments.source.resolve(), arguments.destination.resolve())
+        catalog_path = build_catalog(
+            arguments.source.resolve(),
+            arguments.destination.resolve(),
+            metadata_only=arguments.metadata_only,
+        )
     except CatalogError as error:
         print(f"error: Audio catalog validation failed: {error}", file=sys.stderr)
         return 1

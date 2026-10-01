@@ -1,5 +1,16 @@
 # Verification record
 
+## 2026-10-01 — interactive controls, widgets, and refreshed documentation
+
+- Added configurable iOS 18 sound controls, interactive Small and Lock Screen widgets, App Group playback state, metadata-only widget catalog generation, and complete interface localization for all seven supported languages.
+- Confirmed that subtitles in the app and Live Activity use leading multiline alignment. The maintainer verified the app result on an iPhone 15 Pro.
+- The Python suite passed all 17 tests. The portable Swift package passed all 19 tests.
+- An unsigned generic iPhone build passed with the installed Xcode and iOS SDK. `build-for-testing` also succeeded for the app, widget, unit-test, and UI-test targets on the generic iOS Simulator destination.
+- A signed Debug build was built, installed, launched, and verified on a physical iPhone 15 Pro with the local ignored deployment script.
+- The five maintainer-supplied screenshots were reviewed for visible personal data. They contain no name, e-mail address, account, device identifier, signing identifier, or credential. Their embedded metadata was removed before publication.
+- The publishable deployment example contains no personal device or signing-team identifier. The real local deployment script remains ignored by Git.
+- Manual checks for every widget layout, every iOS 18 control location, accessibility settings, and every supported language remain listed in `TESTING.md`; the automated build does not replace those checks.
+
 ## 2026-09-03 — documentation and source publication preparation
 
 - The maintainer requested a README with the existing app icon, screenshots, and a Codex Sol development credit, followed by a push and merge to `main`.
