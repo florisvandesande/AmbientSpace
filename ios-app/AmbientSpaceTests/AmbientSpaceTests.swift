@@ -116,6 +116,40 @@ final class AudioCatalogTests: XCTestCase {
     }
 }
 
+final class PlaybackWidgetStateTests: XCTestCase {
+    func testStateRoundTripsThroughInjectedDefaults() {
+        let suite = "PlaybackWidgetStateTests-\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+        let store = PlaybackWidgetStateStore(defaults: defaults)
+        let expected = PlaybackWidgetState(currentTrackID: "rain", isPlaying: true)
+
+        XCTAssertTrue(store.save(expected))
+        XCTAssertEqual(store.load(), expected)
+    }
+
+    func testMissingStateUsesPausedDefault() {
+        let suite = "PlaybackWidgetStateTests-\(UUID().uuidString)"
+        let defaults = UserDefaults(suiteName: suite)!
+        defer { defaults.removePersistentDomain(forName: suite) }
+
+        XCTAssertEqual(
+            PlaybackWidgetStateStore(defaults: defaults).load(),
+            PlaybackWidgetState(currentTrackID: nil, isPlaying: false)
+        )
+    }
+
+    func testWidgetLayoutThresholds() {
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 0), .empty)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 1), .single)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 2), .twoPills)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 3), .fourCells)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 4), .fourCells)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 5), .nineCells)
+        XCTAssertEqual(SoundWidgetLayout.layout(configuredCount: 9), .nineCells)
+    }
+}
+
 #if os(iOS)
 @MainActor
 final class AudioPlaybackControllerTests: XCTestCase {
@@ -188,6 +222,34 @@ final class AudioPlaybackControllerTests: XCTestCase {
         controller.setAudioMode(.foreground)
         XCTAssertEqual(controller.audioMode, .foreground)
         XCTAssertEqual(session.lastMode, .foreground)
+    }
+
+    func testTrackToggleStartsPausesAndResumesTheChosenTrack() {
+        let first = makeTrack(id: "rain", index: 1)
+        let second = makeTrack(id: "forest", index: 2)
+        let engine = FakeAudioEngine()
+        let controller = AudioPlaybackController(
+            tracks: [first, second],
+            engine: engine,
+            audioSession: FakeAudioSession(),
+            usesRemoteControls: false
+        )
+
+        controller.togglePlayback(for: first)
+        XCTAssertEqual(controller.currentTrack, first)
+        XCTAssertTrue(controller.isPlaying)
+
+        controller.togglePlayback(for: first)
+        XCTAssertFalse(controller.isPlaying)
+
+        controller.togglePlayback(for: first)
+        XCTAssertTrue(controller.isPlaying)
+        XCTAssertEqual(engine.resumeCount, 1)
+
+        controller.togglePlayback(for: second)
+        XCTAssertEqual(controller.currentTrack, second)
+        XCTAssertTrue(controller.isPlaying)
+        XCTAssertEqual(engine.playCount, 2)
     }
 
     func testSleepTimerFadesAndFinishesFromAbsoluteTime() {

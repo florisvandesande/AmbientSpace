@@ -118,3 +118,6 @@ __pycache__/
 # Local audio library: keep only the public setup guide in Git.
 /audio-files/*
 !/audio-files/README.md
+
+# Local iPhone deployment configuration; copy the committed example first.
+/scripts/deploy_ios_to_iphone.sh

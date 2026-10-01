@@ -1,6 +1,7 @@
 import AVFoundation
 import Foundation
 import OSLog
+import WidgetKit
 
 @MainActor
 final class AudioPlaybackController: ObservableObject {
@@ -22,6 +23,7 @@ final class AudioPlaybackController: ObservableObject {
     private let audioSession: AudioSessionManaging
     private let remoteControl: RemoteControlCoordinator?
     private let liveActivity: LiveActivityCoordinator?
+    private let widgetStateStore: PlaybackWidgetStateStore?
     private let logger = Logger(
         subsystem: "com.florisvandesande.AmbientSpace",
         category: "AudioPlayback"
@@ -44,6 +46,7 @@ final class AudioPlaybackController: ObservableObject {
         sleepTimer = SleepTimerController(now: now)
         remoteControl = usesRemoteControls ? RemoteControlCoordinator(bundle: bundle) : nil
         liveActivity = usesRemoteControls ? LiveActivityCoordinator() : nil
+        widgetStateStore = usesRemoteControls ? PlaybackWidgetStateStore() : nil
 
         if let suppliedTracks {
             tracks = suppliedTracks.sorted { $0.index < $1.index }
@@ -59,6 +62,7 @@ final class AudioPlaybackController: ObservableObject {
         configureSleepTimerCallbacks()
         configureRemoteControls()
         observeAudioEvents()
+        publishWidgetState()
 
         do {
             try audioSession.configure(mode: .background, activate: false)
@@ -100,6 +104,7 @@ final class AudioPlaybackController: ObservableObject {
             engineHasTrack = true
             refreshRemoteInformation()
             refreshLiveActivity()
+            publishWidgetState()
         } catch let error as AudioEngineError {
             presentError(error.localizedDescription)
             logger.error("Track playback failed: \(error.localizedDescription, privacy: .public)")
@@ -118,6 +123,7 @@ final class AudioPlaybackController: ObservableObject {
         isPlaying = false
         refreshRemoteInformation()
         refreshLiveActivity()
+        publishWidgetState()
     }
 
     func resume() {
@@ -142,6 +148,7 @@ final class AudioPlaybackController: ObservableObject {
             isPlaying = true
             refreshRemoteInformation()
             refreshLiveActivity()
+            publishWidgetState()
         } catch {
             presentError(String(localized: "Playback could not resume. Try again."))
             logger.error("Resume failed: \(error.localizedDescription, privacy: .public)")
@@ -275,6 +282,7 @@ final class AudioPlaybackController: ObservableObject {
         isPlaying = false
         refreshRemoteInformation()
         refreshLiveActivity()
+        publishWidgetState()
         do {
             try audioSession.deactivate()
         } catch {
@@ -292,6 +300,17 @@ final class AudioPlaybackController: ObservableObject {
 
     private func refreshLiveActivity() {
         liveActivity?.update(track: currentTrack, isPlaying: isPlaying)
+    }
+
+    private func publishWidgetState() {
+        guard let widgetStateStore else { return }
+        widgetStateStore.save(
+            PlaybackWidgetState(currentTrackID: currentTrack?.id, isPlaying: isPlaying)
+        )
+        WidgetCenter.shared.reloadAllTimelines()
+        if #available(iOS 18.0, *) {
+            ControlCenter.shared.reloadAllControls()
+        }
     }
 
     private func presentError(_ message: String) {
