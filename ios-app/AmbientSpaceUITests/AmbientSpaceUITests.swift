@@ -61,19 +61,21 @@ final class AmbientSpaceUITests: XCTestCase {
         }
     }
 
-    func testDescriptionIsBelowSubtitleAndDoesNotStartPlayback() throws {
+    func testWholeTrackRowStartsPlaybackAndExpandsDescription() throws {
         let app = launch()
-        let title = app.buttons["trackTitle-bos"]
-        guard title.waitForExistence(timeout: 3) else {
+        let row = app.buttons["trackRow-bos"]
+        guard row.waitForExistence(timeout: 3) else {
             throw XCTSkip("The optional forest recording is not bundled.")
         }
-        title.tap()
+        // Tap the trailing part of the row, away from the text and symbol.
+        row.coordinate(withNormalizedOffset: CGVector(dx: 0.82, dy: 0.72)).tap()
+        XCTAssertTrue(row.label.hasPrefix("Pause "))
         let description = app.staticTexts["trackDescription-bos"]
         XCTAssertTrue(description.waitForExistence(timeout: 3))
-        XCTAssertGreaterThanOrEqual(description.frame.minY, title.frame.maxY)
-        XCTAssertTrue(app.staticTexts["Choose an atmosphere"].exists)
+        XCTAssertGreaterThanOrEqual(description.frame.minY, row.frame.minY)
         attachScreenshot("expanded-description")
-        title.tap()
+        row.tap()
+        XCTAssertTrue(row.label.hasPrefix("Play "))
         XCTAssertFalse(description.exists)
     }
 
@@ -88,7 +90,7 @@ final class AmbientSpaceUITests: XCTestCase {
     private func checkGradientColors(appearance: String) throws {
         let app = launch(appearance: appearance)
         defer { app.terminate() }
-        guard app.buttons["trackTitle-bos"].waitForExistence(timeout: 5) else {
+        guard app.buttons["trackRow-bos"].waitForExistence(timeout: 5) else {
             throw XCTSkip("The optional example recordings are not bundled.")
         }
         // Exercise real playing state silently, without changing system volume.
@@ -100,20 +102,17 @@ final class AmbientSpaceUITests: XCTestCase {
         attachScreenshot("colors-\(appearance)-inactive")
 
         for id in ["bos", "nachtelijke_regen", "regenstorm", "riviertje"] {
-            let title = app.buttons["trackTitle-\(id)"]
-            guard title.exists else { continue }
-            let play = app.buttons["trackPlayback-\(id)"]
-            play.tap()
-            XCTAssertTrue(play.label.hasPrefix("Pause "))
+            let row = app.buttons["trackRow-\(id)"]
+            guard row.exists else { continue }
+            row.tap()
+            XCTAssertTrue(row.label.hasPrefix("Pause "))
             attachScreenshot("colors-\(appearance)-\(id)-active")
-            title.tap()
             let description = app.staticTexts["trackDescription-\(id)"]
             XCTAssertTrue(description.waitForExistence(timeout: 3))
-            XCTAssertGreaterThanOrEqual(description.frame.minY, title.frame.maxY)
+            XCTAssertGreaterThanOrEqual(description.frame.minY, row.frame.minY)
             attachScreenshot("colors-\(appearance)-\(id)-expanded")
-            title.tap()
-            play.tap()
-            XCTAssertTrue(play.label.hasPrefix("Play "))
+            row.tap()
+            XCTAssertTrue(row.label.hasPrefix("Play "))
         }
     }
 
@@ -121,15 +120,15 @@ final class AmbientSpaceUITests: XCTestCase {
         for appearance in ["light", "dark"] {
             let app = launch(appearance: appearance, largeText: true)
             defer { app.terminate() }
-            let title = app.buttons["trackTitle-bos"]
-            guard title.waitForExistence(timeout: 5) else {
+            let row = app.buttons["trackRow-bos"]
+            guard row.waitForExistence(timeout: 5) else {
                 throw XCTSkip("The optional forest recording is not bundled.")
             }
             attachScreenshot("colors-\(appearance)-maximum-text")
-            title.tap()
+            row.tap()
             let description = app.staticTexts["trackDescription-bos"]
             XCTAssertTrue(description.waitForExistence(timeout: 3))
-            XCTAssertGreaterThanOrEqual(description.frame.minY, title.frame.maxY)
+            XCTAssertGreaterThanOrEqual(description.frame.minY, row.frame.minY)
             attachScreenshot("colors-\(appearance)-maximum-text-expanded")
             app.swipeUp()
             attachScreenshot("colors-\(appearance)-maximum-text-scrolled")

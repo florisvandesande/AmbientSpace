@@ -1,7 +1,9 @@
-import ActivityKit
 import AppIntents
 import SwiftUI
 import WidgetKit
+#if !targetEnvironment(macCatalyst)
+import ActivityKit
+#endif
 
 private enum WidgetKinds {
     static let controls = "com.florisvandesande.AmbientSpace.sound-grid"
@@ -11,18 +13,23 @@ private enum WidgetKinds {
 @main
 struct AmbientSpaceWidgets: WidgetBundle {
     var body: some Widget {
+#if !targetEnvironment(macCatalyst)
         AmbientPlaybackLiveActivity()
+#endif
         AmbientSoundGridWidget()
+#if !targetEnvironment(macCatalyst)
         AmbientLockScreenSoundWidget()
-        #if compiler(>=6.0)
+#endif
+#if os(iOS) && !targetEnvironment(macCatalyst) && compiler(>=6.0)
         if #available(iOSApplicationExtension 18.0, *) {
             PlayRandomSoundControl()
             PlaySoundControl()
         }
-        #endif
+#endif
     }
 }
 
+#if !targetEnvironment(macCatalyst)
 struct AmbientPlaybackLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: AmbientPlaybackActivityAttributes.self) { context in
@@ -76,6 +83,7 @@ struct AmbientPlaybackLiveActivity: Widget {
         }
     }
 }
+#endif
 
 struct SoundWidgetEntry: TimelineEntry {
     let date: Date
@@ -128,7 +136,11 @@ struct AmbientSoundGridWidget: Widget {
         }
         .configurationDisplayName("AmbientSpace controls")
         .description("Choose up to nine sound controls.")
+#if targetEnvironment(macCatalyst)
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+#else
         .supportedFamilies([.systemSmall])
+#endif
         .contentMarginsDisabled()
     }
 }
@@ -256,6 +268,7 @@ private extension Color {
     }
 }
 
+#if !targetEnvironment(macCatalyst)
 struct LockScreenSoundEntry: TimelineEntry {
     let date: Date
     let configuration: LockScreenSoundConfigurationIntent
@@ -317,8 +330,9 @@ private struct LockScreenSoundView: View {
         }
     }
 }
+#endif
 
-#if compiler(>=6.0)
+#if os(iOS) && !targetEnvironment(macCatalyst) && compiler(>=6.0)
 @available(iOSApplicationExtension 18.0, *)
 struct PlayRandomSoundControl: ControlWidget {
     var body: some ControlWidgetConfiguration {

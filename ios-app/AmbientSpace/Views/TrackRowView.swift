@@ -69,9 +69,18 @@ struct TrackRowView: View {
                         .foregroundStyle(.white)
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
         }
         // The whole row is now tappable for playback - no nested play button wrapper
+        .buttonStyle(.plain)
         .padding(18)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .accessibilityIdentifier("trackRow-\(track.id)")
+        .accessibilityLabel(
+            String(localized: isPlaying ? "Pause \(track.displayTitle)" : "Play \(track.displayTitle)")
+        )
         .background {
             LinearGradient(
                 colors: [Color(components: gradient.start), Color(components: gradient.end)],

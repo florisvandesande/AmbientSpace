@@ -1,6 +1,14 @@
-import ActivityKit
 import Foundation
 import OSLog
+
+#if targetEnvironment(macCatalyst)
+@MainActor
+final class LiveActivityCoordinator {
+    // Catalyst has no iOS Live Activity surface; keep the playback controller API shared.
+    func update(track: AudioTrack?, isPlaying: Bool) {}
+}
+#else
+import ActivityKit
 
 @MainActor
 final class LiveActivityCoordinator {
@@ -55,3 +63,4 @@ final class LiveActivityCoordinator {
         }
     }
 }
+#endif

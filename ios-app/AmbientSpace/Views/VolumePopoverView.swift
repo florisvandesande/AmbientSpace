@@ -24,7 +24,7 @@ struct VolumePopoverView: View {
                     .accessibilityHidden(true)
             }
 
-            Text("Only changes AmbientSpace. The iPhone volume and other apps stay unchanged.")
+            Text(appVolumeDescription)
                 .font(.footnote)
                 .foregroundStyle(.secondary)
 
@@ -45,7 +45,7 @@ struct VolumePopoverView: View {
                 Text(
                     playback.audioMode == .background
                         ? String(localized: "AmbientSpace mixes with other apps and leaves their media controls available.")
-                        : String(localized: "AmbientSpace takes over media controls and shows the current cover.")
+                        : foregroundModeDescription
                 )
                 .font(.footnote)
                 .foregroundStyle(.secondary)
@@ -53,5 +53,21 @@ struct VolumePopoverView: View {
             }
         }
         .padding(20)
+    }
+
+    private var foregroundModeDescription: String {
+#if targetEnvironment(macCatalyst)
+        return String(localized: "AmbientSpace takes over media controls and shows the current cover in Now Playing.")
+#else
+        return String(localized: "AmbientSpace takes over media controls and shows the current cover.")
+#endif
+    }
+
+    private var appVolumeDescription: String {
+#if targetEnvironment(macCatalyst)
+        return String(localized: "Only changes AmbientSpace. The system volume and other apps stay unchanged.")
+#else
+        return String(localized: "Only changes AmbientSpace. The iPhone volume and other apps stay unchanged.")
+#endif
     }
 }

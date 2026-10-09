@@ -1,5 +1,5 @@
+#if !targetEnvironment(macCatalyst)
 import ActivityKit
-import Foundation
 
 struct AmbientPlaybackActivityAttributes: ActivityAttributes {
     struct ContentState: Codable, Hashable {
@@ -8,3 +8,4 @@ struct AmbientPlaybackActivityAttributes: ActivityAttributes {
         let sfSymbol: String?
     }
 }
+#endif
