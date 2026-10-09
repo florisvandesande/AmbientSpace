@@ -112,6 +112,12 @@ DerivedData/
 *.p12
 *.p8
 *.mobileprovision
+*.provisionprofile
+*.cer
+*.crt
+*.der
+*.pem
+*.key
 __pycache__/
 *.pyc
 
@@ -119,5 +125,6 @@ __pycache__/
 /audio-files/*
 !/audio-files/README.md
 
-# Local iPhone deployment configuration; copy the committed example first.
+# Local deployment wrappers; copy the committed examples first.
 /scripts/deploy_ios_to_iphone.sh
+/scripts/deploy_macos.sh

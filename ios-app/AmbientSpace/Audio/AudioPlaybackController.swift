@@ -217,6 +217,9 @@ final class AudioPlaybackController: ObservableObject {
     }
 
     private func observeAudioEvents() {
+#if targetEnvironment(macCatalyst)
+        return
+#else
         let center = NotificationCenter.default
         notificationTokens.append(
             center.addObserver(
@@ -240,8 +243,10 @@ final class AudioPlaybackController: ObservableObject {
                 }
             }
         )
+#endif
     }
 
+#if !targetEnvironment(macCatalyst)
     private func handleInterruption(_ notification: Notification) {
         guard let rawType = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
               let type = AVAudioSession.InterruptionType(rawValue: rawType)
@@ -275,6 +280,7 @@ final class AudioPlaybackController: ObservableObject {
         }
         pause()
     }
+#endif
 
     private func stopAfterSleepTimer() {
         engine.stop()
@@ -308,9 +314,11 @@ final class AudioPlaybackController: ObservableObject {
             PlaybackWidgetState(currentTrackID: currentTrack?.id, isPlaying: isPlaying)
         )
         WidgetCenter.shared.reloadAllTimelines()
+#if os(iOS) && !targetEnvironment(macCatalyst)
         if #available(iOS 18.0, *) {
             ControlCenter.shared.reloadAllControls()
         }
+#endif
     }
 
     private func presentError(_ message: String) {

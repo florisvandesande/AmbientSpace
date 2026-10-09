@@ -1,5 +1,35 @@
 # Verification record
 
+## 2026-10-07 — Final Mac Catalyst interaction, resizing, and install
+
+- The installed app was tested through macOS Accessibility. Clicking the empty trailing area of the first row changed its label from `Speel Bos` to `Pauzeer Bos` and expanded the description, confirming that the whole visible row starts playback.
+- The installed window resized from `720 × 826` to `880 × 906` through a real lower-right resize drag. The title text is hidden while the standard macOS window controls remain visible.
+- The screenshot after resizing showed a single continuous row gradient, with no second opaque inner button gradient.
+- The Python suite passed all 17 tests, the portable Swift package passed all 19 tests, the generic iOS build and build-for-testing passed, the unsigned Mac Catalyst build passed, the deploy script shell check passed, and `git diff --check` passed.
+- The final app was installed at `~/Applications/AmbientSpace.app`, its bundle identifier and embedded widget extension were validated, and it was launched successfully. The previous installation was preserved in a timestamped `.previous` backup beside the app.
+
+## 2026-10-07 — Mac Catalyst minimum window size
+
+- Changed both SwiftUI content sizing and the Catalyst scene restriction to a 200 × 200 point minimum so the limit is applied consistently by the content and native window layers.
+- On the installed app, requesting `160 × 160` was clamped to `200 × 232`: the content area reached 200 × 200 points and the standard 32-point title bar remained part of the outer window frame. The window was restored to `720 × 826` after this check.
+
+## 2026-10-07 — Mac Catalyst window and row styling
+
+- Track rows now use the plain button style so the text and icon area is transparent and the row's metadata gradient remains visible without a second inner gradient or button fill.
+- The Catalyst window has explicit usable minimum dimensions and supports freeform resizing. Its title text is hidden through the Catalyst titlebar API while the standard macOS window controls remain available.
+- The unsigned Mac Catalyst build passed after these changes for the `arm64` Mac destination. The generic iOS build also passed for the shared SwiftUI source.
+- `scripts/deploy_macos.example.sh` built, validated the app and embedded widget extension, installed the app to the user's `~/Applications/AmbientSpace.app`, launched it, and confirmed a running Catalyst process.
+
+## 2026-10-07 — Mac Catalyst target
+
+- Added a Mac Catalyst configuration to the existing AmbientSpace app and widget target. The Mac build uses a separate application plist, targets macOS 14 or later in the current Xcode environment, and keeps the iOS plist unchanged.
+- Added a resizable desktop window, a localized Playback menu, and keyboard shortcuts for play/pause and previous/next sound selection. The commands use the existing `AudioPlaybackController`.
+- Kept the audio engine, catalog, app volume, sleep timer, App Intents, and metadata-only widget state shared with iOS. Catalyst uses macOS's normal application-audio mixing; iOS-only AVAudioSession interruption handling, Live Activity, Lock Screen widgets, and Control Center controls are excluded from the Catalyst build.
+- The unsigned Mac Catalyst build succeeded with Xcode 27.0 and the macOS 27.0 SDK. Both the `AmbientSpace` app and `AmbientSpaceWidgets` extension compiled and were embedded in the generated `.app`.
+- `scripts/deploy_macos.example.sh` passed shell syntax/help checks and was run on this Mac with the local bundle identifier. It built unsigned, validated the app and widget bundle, installed to `~/Applications/AmbientSpace.app`, launched the app, and confirmed a running Catalyst process.
+- The Python suite passed all 17 tests and the portable Swift package passed all 19 tests. `git diff --check` passed.
+- A separate manual Mac accessibility, media-key, mixing, widget, signing, and notarization session remains required before public Mac distribution. See the Mac checklist in `TESTING.md`.
+
 ## 2026-10-01 — interactive controls, widgets, and refreshed documentation
 
 - Added configurable iOS 18 sound controls, interactive Small and Lock Screen widgets, App Group playback state, metadata-only widget catalog generation, and complete interface localization for all seven supported languages.

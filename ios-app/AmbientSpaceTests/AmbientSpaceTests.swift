@@ -150,7 +150,7 @@ final class PlaybackWidgetStateTests: XCTestCase {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || targetEnvironment(macCatalyst)
 @MainActor
 final class AudioPlaybackControllerTests: XCTestCase {
     func testOutputVolumeNeverReconfiguresTheAudioSession() {
@@ -315,7 +315,7 @@ private final class FakeAudioEngine: AudioEngineType {
     func stop() {}
 }
 
-#if os(iOS)
+#if os(iOS) || targetEnvironment(macCatalyst)
 @MainActor
 private final class FakeAudioSession: AudioSessionManaging {
     var lastMode: AudioMode?

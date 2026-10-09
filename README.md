@@ -7,17 +7,18 @@
 <p align="center">Ambient recordings, at your own volume.</p>
 
 <p align="center">
-  iPhone · iOS 17+ · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
+  iPhone · Mac Catalyst · iOS 17+ · macOS 14+ · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
 </p>
 
 <p align="center">
   <a href="#getting-started">Getting started</a> ·
   <a href="audio-files/README.md">Add sounds</a> ·
+  <a href="#run-on-mac">Run on Mac</a> ·
   <a href="#install-on-an-iphone">Install on iPhone</a> ·
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
-AmbientSpace is a small, native iPhone app for looping ambient recordings. Mix a quiet background with music from another app, or give AmbientSpace its own Lock Screen controls. It uses SwiftUI and Apple's audio frameworks, without a backend, accounts, analytics, streaming, or third-party packages.
+AmbientSpace is a small, native iPhone and Mac app for looping ambient recordings. Mix a quiet background with music from another app, or give AmbientSpace its own system playback controls. It uses SwiftUI and Apple's audio frameworks, without a backend, accounts, analytics, streaming, or third-party packages.
 
 **Preview status:** this is a buildable source project, not a finished App Store release. Bring your own recordings; no audio library is included. Known limitations and dated test results are listed below.
 
@@ -26,11 +27,12 @@ AmbientSpace is a small, native iPhone app for looping ambient recordings. Mix a
 - **Independent volume.** Turn AmbientSpace down without changing another app's volume. Hardware volume buttons still control the phone's system volume.
 - **Infinite looping and transitions.** Every recording repeats indefinitely by default, with a six-second crossfade into the next repetition and when switching recordings.
 - **System playback.** Background mode mixes with other apps. Foreground mode provides artwork and play, pause, previous, and next controls on the Lock Screen and in Control Center. When metadata contains an SF Symbol, that symbol is used as the system artwork.
+- **Mac Catalyst.** Run the same library locally on macOS through Xcode. The Mac build adds a Playback menu with keyboard shortcuts, a resizable desktop window without a visible title label, and a Mac-compatible controls widget. Foreground mode registers Now Playing metadata and media commands; macOS does not provide iOS's exclusive audio-session behavior.
 - **System actions.** “Play a random sound” and “Play sound” are available through App Shortcuts. On iOS 18 or later, a reusable sound control can be added multiple times to Control Center, the Lock Screen, or the Action button. Each copy is configured with a sound and displays that sound's SF Symbol.
-- **Interactive widgets.** A configurable Small widget offers up to nine positions for random playback, global play/pause, or chosen sounds. Circular and rectangular Lock Screen widgets show and control one chosen sound. Widget actions are available on iOS 17 or later.
-- **Live Activity.** While audio is playing, the current sound and its symbol appear on the Lock Screen and supported Dynamic Island devices. Tapping it opens AmbientSpace. Pausing or stopping ends the Live Activity.
+- **Interactive widgets.** A configurable Small widget offers up to nine positions for random playback, global play/pause, or chosen sounds. Circular and rectangular Lock Screen widgets show and control one chosen sound on iOS; the Mac Catalyst extension provides the compatible desktop widget families. Widget actions are available on iOS 17 or later and in the Mac Catalyst build.
+- **Live Activity.** On iOS, while audio is playing, the current sound and its symbol appear on the Lock Screen and supported Dynamic Island devices. Tapping it opens AmbientSpace. Pausing or stopping ends the Live Activity. Live Activities and Dynamic Island are iOS-only; Mac uses Now Playing, menu commands, and widgets instead.
 - **Sleep timer.** Choose 15, 30, 45, or 60 minutes, or a custom duration from one minute to twelve hours. Audio fades during the final fifteen seconds.
-- **A simple library.** Color gradients come from recording metadata. Tap a title to reveal its description; use the separate button to play or pause.
+- **A simple library.** Color gradients come from recording metadata. Tap anywhere on a row to start or pause its sound and reveal its description.
 - **Seven languages.** Recording metadata and the interface support English, Dutch, French, German, Spanish, Italian, and Brazilian Portuguese and follow the phone's language preferences. There is no in-app language setting.
 
 The app starts paused, in background mode, at 100% app volume. Playback state, app volume, mode, and timer are not saved between full launches.
@@ -89,10 +91,18 @@ iPhone screenshots supplied by the maintainer on October 1, 2026, showing the En
   </tr>
 </table>
 
+The Mac screenshot below was captured from the installed Mac Catalyst build on October 8, 2026. The source image is exactly 300 × 600 pixels.
+
+<p align="center">
+  <img src="docs/images/macos-300x600.png" width="300" height="600" alt="AmbientSpace Mac Catalyst app in a 300 by 600 layout with gradient sound rows">
+</p>
+
 ## Requirements
 
-- A Mac with Xcode 15.2 or later and an installed iOS SDK. Xcode 16 or later is required to include iOS 18 Control Center controls.
+- A Mac with Xcode 16 or later and the iOS and macOS SDKs. The current Catalyst configuration targets macOS 14 or later. Xcode 27 was used for the latest recorded build.
 - iPhone with iOS 17.0 or later.
+- For Mac use: macOS 14 or later and an Apple-silicon or Intel Mac supported by the installed Xcode version.
+- Bash and the standard macOS command-line tools `ditto`, `mktemp`, `open`, `osascript`, `plutil`, and `pgrep` for the optional deployment script.
 - Python 3.9 or later, used only during development/building.
 - For installation on a physical phone: your own Apple account configured in Xcode and a development signing team.
 
@@ -114,6 +124,58 @@ The app can be built with an empty `audio-files/` folder. It will explain how to
 The public source contains the audio guide, not the recordings. All other contents of `audio-files/` are ignored by Git, including recording metadata and cover images. Local app builds still bundle your local audio library; excluding it from Git does not exclude it from a shared app binary.
 
 There are no runtime secrets or configuration files to create. Do not add signing certificates, private keys, provisioning profiles, or account credentials to this repository.
+Local recordings, cover images, metadata, deployment wrappers, and common Apple signing-file extensions are ignored; only the public audio guide and generic `.example.sh` deployment scripts belong in Git.
+
+### Deployment scripts
+
+The repository contains two publishable, generic deployment examples:
+
+- [`scripts/deploy_ios_to_iphone.example.sh`](scripts/deploy_ios_to_iphone.example.sh) builds, signs, installs, launches, and verifies the app on a physical iPhone. It lists physical devices, refuses to guess when more than one iPhone is available, and detects the signing team from a local provisioning profile. Use `--team ID` only as a local override when automatic detection cannot decide.
+- [`scripts/deploy_macos.example.sh`](scripts/deploy_macos.example.sh) builds, validates, installs, launches, and verifies the Mac Catalyst app and its embedded widget extension. It is unsigned by default, installs to `~/Applications/AmbientSpace.app`, preserves an existing app as a timestamped `.previous` backup, and supports `--build-only`, `--no-launch`, `--install-path PATH`, and opt-in signing with `--signed --team TEAM_ID`.
+
+The `.example.sh` files contain no personal device identifier, developer team, certificate, provisioning profile, or credential. Copy an example to the matching local wrapper before using it. The real wrappers are intentionally ignored by Git so machine-specific settings remain local:
+
+```bash
+cp scripts/deploy_ios_to_iphone.example.sh scripts/deploy_ios_to_iphone.sh
+cp scripts/deploy_macos.example.sh scripts/deploy_macos.sh
+chmod +x scripts/deploy_ios_to_iphone.sh scripts/deploy_macos.sh
+git check-ignore -v scripts/deploy_ios_to_iphone.sh scripts/deploy_macos.sh
+```
+
+The final command should report the matching `.gitignore` rules. Never replace the committed examples with personal deployment configuration.
+
+## Run on Mac
+
+AmbientSpace uses Mac Catalyst, which lets the SwiftUI iOS app run as a native macOS application while sharing the catalog and playback code.
+
+1. Open `ios-app/AmbientSpace.xcodeproj` in Xcode.
+2. Select the **AmbientSpace** scheme and choose **My Mac (Mac Catalyst)** as the run destination.
+3. Press **Run**. For local development, an unsigned build can run from Xcode without a distribution certificate.
+4. Start a sound and use the **Playback** menu, the space bar, or **⌘←** and **⌘→** for transport controls.
+
+The Mac window opens at a desktop-friendly size and its content area can be resized down to 200 × 200 points (macOS layout units). The standard macOS title bar adds its own height to the outer frame; the title text next to the window controls is hidden while the controls remain available.
+
+The app volume slider changes AmbientSpace only. Background mode mixes with other Mac apps. Foreground mode publishes Now Playing information and enables media commands, but macOS does not offer the iOS `AVAudioSession` exclusivity boundary. The iOS Live Activity, Dynamic Island, Lock Screen widgets, and iOS 18 Control Center controls remain iOS-only.
+
+For a signed Mac distribution, configure your own team and bundle identifier in Xcode, archive the Catalyst scheme, and follow Apple's current Mac Catalyst distribution and notarization requirements. This repository currently documents local Xcode use; it does not include a production signing or notarization workflow.
+
+### Deploy from Terminal
+
+Create the ignored local wrapper from the safe example:
+
+```bash
+cp scripts/deploy_macos.example.sh scripts/deploy_macos.sh
+chmod +x scripts/deploy_macos.sh
+```
+
+Build, install, launch, and verify an unsigned local copy:
+
+```bash
+BUNDLE_ID=com.example.ambientspace \
+  scripts/deploy_macos.sh
+```
+
+The default destination is `~/Applications/AmbientSpace.app`. If an older copy exists, the script moves it to a timestamped `.previous` backup before installing the new build. Use `--build-only` for a compile-and-bundle check, `--no-launch` to install without opening the app, or `--install-path PATH` for another writable `.app` location. Signing is opt-in with `--signed --team TEAM_ID`; the script never stores or discovers a personal signing value in the committed example.
 
 ### Command-line build without signing
 
@@ -130,6 +192,19 @@ xcodebuild build \
 ```
 
 This checks compilation. An unsigned app cannot be installed on a normal iPhone.
+
+To check the Mac Catalyst target locally:
+
+```bash
+xcodebuild build \
+  -project ios-app/AmbientSpace.xcodeproj \
+  -scheme AmbientSpace \
+  -destination 'platform=macOS,variant=Mac Catalyst' \
+  -derivedDataPath /tmp/AmbientSpaceCatalystBuild \
+  CODE_SIGNING_ALLOWED=NO
+```
+
+This builds both the Mac Catalyst app and its compatible widget extension. The build output is written outside the repository.
 
 ## Install on an iPhone
 
@@ -174,10 +249,12 @@ For a first deployment without a matching local provisioning profile, open the p
 
 ## Verification and known limitations
 
-Last recorded checks: **October 1, 2026**.
+Last recorded checks: **October 8, 2026**.
 
 - All **19 portable Swift tests** and **17 Python tests** pass.
 - The app and widget extension compile in an unsigned device build, and the test targets compile with `build-for-testing`.
+- The app and widget extension compile in an unsigned Mac Catalyst build with Xcode 27, including the desktop window configuration and Mac playback commands.
+- The macOS deployment script builds, installs, launches, and verifies the local Catalyst app on this Mac without signing.
 - A signed build was installed, launched, and verified on an iPhone 15 Pro. See the [verification record](docs/VERIFICATION.md) for the broader manual checklist.
 
 Limitations to know before using or contributing:
@@ -189,6 +266,8 @@ Limitations to know before using or contributing:
 - The app has been built, installed, and launched on a physical iPhone 15 Pro. The supplied screenshots verify the Live Activity and Dynamic Island presentation. Dynamic Island deep linking and all iOS 18 control interactions still require the complete physical-device checklist.
 - Apple's built-in Now Playing transport button always uses the system play/pause artwork. AmbientSpace supplies the current sound's SF Symbol as Now Playing artwork and uses it on its own controls and widgets, but cannot replace that system transport symbol.
 - WidgetKit controls when timelines are rendered. AmbientSpace requests a refresh after every playback change, but iOS may defer a visual widget update. Playback actions still run in the app process through `AudioPlaybackIntent`.
+- Mac Catalyst has no iOS-style Live Activity or Lock Screen. The Mac build uses Now Playing, the Playback menu, keyboard shortcuts, and the desktop widget as its system-level equivalents.
+- The Mac Catalyst interface has been manually checked for full-row accessibility, continuous gradients, hidden title text, and the 200 × 200 point content minimum. Full desktop listening, VoiceOver, keyboard focus, media-key, and mixing checks still belong to the release checklist before distribution.
 
 ### Run the tests
 
@@ -197,7 +276,7 @@ python3 -m unittest discover -s scripts/tests -p 'test_*.py'
 swift test --scratch-path /tmp/AmbientSpaceCoreTests
 ```
 
-In Xcode, choose an installed iPhone simulator and use **Product > Test**. See [testing instructions](docs/TESTING.md) for command-line tests and the physical-device checklist.
+In Xcode, choose an installed iPhone simulator and use **Product > Test**. For Mac, choose **My Mac (Mac Catalyst)** and use **Product > Build** or **Product > Test** as supported by the installed Xcode version. See [testing instructions](docs/TESTING.md) for command-line tests and the physical-device checklist.
 
 ## Development and attribution
 
