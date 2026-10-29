@@ -1,5 +1,11 @@
 # Testing AmbientSpace
 
+## Verification contract for Mac Catalyst
+
+The supported Mac Catalyst deployment target is macOS 13.0. The Mac application and its widget extension are built as a universal product containing `x86_64` for Intel Macs and `arm64` for Apple Silicon Macs.
+
+The local verification baseline is an iMac18,3 with an Intel `x86_64` processor, macOS 13.7.8, and Xcode 15.2. A successful run on this machine is Intel runtime verification. Inspecting an `arm64` slice in the universal build proves that Apple Silicon code is present, but it is not an Apple Silicon runtime test. Do not report Apple Silicon runtime compatibility as tested until the application has been run on Apple Silicon hardware.
+
 ## Automated tests
 
 From the repository root:
@@ -38,6 +44,35 @@ xcodebuild build \
   -derivedDataPath /tmp/AmbientSpaceCatalystBuild \
   CODE_SIGNING_ALLOWED=NO
 ```
+
+Build and inspect the universal Mac Catalyst artifact:
+
+```bash
+xcodebuild build \
+  -project ios-app/AmbientSpace.xcodeproj \
+  -scheme AmbientSpace \
+  -destination 'generic/platform=macOS,variant=Mac Catalyst' \
+  -derivedDataPath /tmp/AmbientSpaceUniversalBuild \
+  ARCHS='x86_64 arm64' \
+  ONLY_ACTIVE_ARCH=NO \
+  CODE_SIGNING_ALLOWED=NO
+
+lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/MacOS/AmbientSpace
+lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/MacOS/AmbientSpaceWidgets
+plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/Info.plist
+plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/Info.plist
+```
+
+Expected evidence is `x86_64 arm64` in both `lipo` results and `13.0` for both minimum-system-version values. The exact `lipo` wording can vary between Xcode versions; the required architecture names must be present.
+
+The deployment workflow is the preferred end-to-end check because it validates the built bundle, embedded widget extension, architectures, minimum system version, installation, launch, and a real interaction. Run the ignored local wrapper created from the committed example when it is available:
+
+```bash
+BUNDLE_ID=com.example.ambientspace \
+  scripts/deploy_macos.sh
+```
+
+Use `--build-only` when installation or launch is not required. A deployment on the Intel iMac must execute the `x86_64` slice. The universal artifact check above must still be run separately or by the deployment workflow; an Intel-only build is insufficient evidence for Apple Silicon support.
 
 Test the deployment script without installing or launching:
 
@@ -78,7 +113,7 @@ Use at least two real recordings of twelve seconds or longer.
 
 ## Mac Catalyst checks
 
-Run the **AmbientSpace** scheme on **My Mac (Mac Catalyst)** in Xcode:
+Run the **AmbientSpace** scheme on **My Mac (Mac Catalyst)** in Xcode 15.2 or a newer toolchain. On the verification iMac, **My Mac** runs the Intel `x86_64` slice:
 
 - Resize the window by dragging its lower-right corner and by using the green zoom control. Confirm the content area can reach 200 × 200 points; the standard title bar adds its own height to the outer frame. Confirm the library remains usable at narrow and wide desktop sizes. Check light and dark appearance, Dynamic Type, VoiceOver focus order, keyboard focus, and Reduce Motion.
 - Confirm the title text beside the standard macOS window controls is hidden while the controls remain available. Confirm each track row shows one continuous metadata gradient without a darker inner button rectangle, and click empty space in a row to start or pause its sound.
@@ -88,6 +123,12 @@ Run the **AmbientSpace** scheme on **My Mac (Mac Catalyst)** in Xcode:
 - If macOS offers the AmbientSpace widget, configure the controls widget in a small, medium, and large family and verify its actions while the app is open and closed.
 - Confirm that iOS-only Live Activity, Dynamic Island, Lock Screen, and Control Center surfaces are not expected on Mac Catalyst.
 
-The deployment script's full local flow also verifies the built bundle identifier, embedded widget extension, installation, and launch. It uses an unsigned build by default; a signed run requires an explicit `--signed --team TEAM_ID`.
+The deployment script's full local flow also verifies the built bundle identifier, embedded widget extension, required architectures, minimum system version, installation, and launch. It uses an unsigned build by default; a signed run requires an explicit `--signed --team TEAM_ID`.
+
+Record the results using these categories:
+
+- **Intel runtime:** the application installed and remained running on the iMac, and the existing playback interaction worked.
+- **Universal artifact:** the application and widget extension contain both `x86_64` and `arm64`, and both declare macOS 13.0 as their minimum system version.
+- **Apple Silicon runtime:** leave this explicitly unverified until the same application has been run on an Apple Silicon Mac.
 
 Simulator tests cannot verify real mixing, hardware volume, Bluetooth routing, listening quality, or every system interruption. A successful deployment verifies installation and launch, not this entire listening checklist.

@@ -1,5 +1,18 @@
 # Architecture
 
+## Platform and build contract
+
+AmbientSpace uses one SwiftUI codebase with an iOS target and a Mac Catalyst target. The iOS deployment target remains iOS 17.0. The Mac Catalyst application and widget extension support macOS 13.0 and are built as a universal product with these architecture slices:
+
+| Product | Intel Mac | Apple Silicon Mac | Runtime boundary |
+| --- | --- | --- | --- |
+| Mac Catalyst app | `x86_64` | `arm64` | Same shared catalog, playback, timer, widget-state, and SwiftUI behavior |
+| Mac Catalyst widget extension | `x86_64` | `arm64` | Metadata-only catalog and app-process playback actions |
+
+The Intel iMac verification environment is macOS 13.7.8 on an iMac18,3 with Xcode 15.2. On that machine, runtime verification exercises the `x86_64` slice. The `arm64` slice is verified by building and inspecting the universal artifact; it is not treated as Apple Silicon runtime evidence. This distinction is intentional because no Apple Silicon Mac is currently available for runtime testing.
+
+The universal architecture is a build and distribution property, not an application behavior branch. Shared Swift code must not select different product behavior by architecture unless an operating-system availability boundary requires it.
+
 ## Source map
 
 - `App/AmbientSpaceApp.swift` owns the app's playback controller.
@@ -51,6 +64,7 @@ Mac Catalyst shares the catalog, dual-player engine, sleep timer, app volume, wi
 - Playback commands are available in the **Playback** menu, with space-bar play/pause and Command-arrow previous/next shortcuts.
 - Foreground mode updates Now Playing and media commands. It does not make macOS audio exclusive because Catalyst has no iOS audio-session category to configure.
 - Live Activity, Dynamic Island, Lock Screen widgets, and iOS 18 Control Center controls are not compiled for Catalyst. The Mac widget uses the shared metadata-only catalog and runs playback actions through the app process.
+- The application and widget must remain available on macOS 13.0. If an API is newer than macOS 13, guard that API at the smallest existing platform boundary and preserve the same user-visible behavior through the supported alternative.
 
 ## Deliberate limits
 
@@ -60,7 +74,7 @@ Mac Catalyst shares the catalog, dual-player engine, sleep timer, app volume, wi
 - Very rapid track switching can temporarily keep several outgoing player pairs alive for the six-second fade window.
 - The generator validates signatures, not complete media decoding or licensing. Large recordings increase app size.
 - The iOS 17-compatible build does not claim newer-SDK-specific visual behavior.
-- The Catalyst build currently targets macOS 14 or later. Distribution signing, notarization, and a separate macOS accessibility/listening checklist are not automated in this repository.
+- The Catalyst build targets macOS 13.0 or later and is universal for Intel and Apple Silicon. Distribution signing, notarization, and a separate macOS accessibility/listening checklist are not automated in this repository. Intel runtime verification and universal-binary inspection do not replace Apple Silicon runtime verification.
 
 ## Row colors and text
 

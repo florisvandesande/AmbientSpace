@@ -7,7 +7,7 @@
 <p align="center">Ambient recordings, at your own volume.</p>
 
 <p align="center">
-  iPhone · Mac Catalyst · iOS 17+ · macOS 14+ · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
+  iPhone · Mac Catalyst · iOS 17+ · macOS 13+ · Intel and Apple Silicon · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
 </p>
 
 <p align="center">
@@ -99,14 +99,14 @@ The Mac screenshot below was captured from the installed Mac Catalyst build on O
 
 ## Requirements
 
-- A Mac with Xcode 16 or later and the iOS and macOS SDKs. The current Catalyst configuration targets macOS 14 or later. Xcode 27 was used for the latest recorded build.
+- A Mac with Xcode 15.2 or later and the iOS and macOS SDKs. The supported Mac Catalyst deployment target is macOS 13.0 or later. The maintained local verification baseline is Xcode 15.2 on macOS 13.7.8 with the macOS 14.2 and iOS 17.2 SDKs.
 - iPhone with iOS 17.0 or later.
-- For Mac use: macOS 14 or later and an Apple-silicon or Intel Mac supported by the installed Xcode version.
+- For Mac use: macOS 13.0 or later on an Intel Mac (`x86_64`) or Apple Silicon Mac (`arm64`). Mac Catalyst release builds are expected to contain both slices in the application and its embedded widget extension.
 - Bash and the standard macOS command-line tools `ditto`, `mktemp`, `open`, `osascript`, `plutil`, and `pgrep` for the optional deployment script.
 - Python 3.9 or later, used only during development/building.
 - For installation on a physical phone: your own Apple account configured in Xcode and a development signing team.
 
-The project's deployment target is iOS 17.0. Live Activities and interactive Home Screen and Lock Screen widgets are available on iOS 17. Configurable Control Center controls require iOS 18 and an Xcode 16-or-later build. Older builds and devices keep the in-app, widget, and Now Playing controls that their operating system supports.
+The project's deployment target is iOS 17.0. Live Activities and interactive Home Screen and Lock Screen widgets are available on iOS 17. Configurable Control Center controls require iOS 18 and a toolchain that supports those controls; the Xcode 15.2 baseline verifies the iOS 17-compatible surfaces. Older builds and devices keep the in-app, widget, and Now Playing controls that their operating system supports.
 
 Widgets and the app share only the current sound identifier and play/pause state through the App Group `group.<app bundle identifier>`. Xcode must enable the same App Groups capability for both **AmbientSpace** and **AmbientSpaceWidgets** when signing. The committed entitlement files derive the group from `AMBIENTSPACE_BUNDLE_ID`; a fork using `com.example.ambientspace` therefore uses `group.com.example.ambientspace`. The widget extension receives a metadata-only catalog and does not contain a second copy of recordings or cover images.
 
@@ -150,7 +150,7 @@ AmbientSpace uses Mac Catalyst, which lets the SwiftUI iOS app run as a native m
 
 1. Open `ios-app/AmbientSpace.xcodeproj` in Xcode.
 2. Select the **AmbientSpace** scheme and choose **My Mac (Mac Catalyst)** as the run destination.
-3. Press **Run**. For local development, an unsigned build can run from Xcode without a distribution certificate.
+3. Press **Run**. On the Intel verification iMac, this runs the `x86_64` slice. On Apple Silicon, Xcode selects the native `arm64` slice. For local development, an unsigned build can run from Xcode without a distribution certificate.
 4. Start a sound and use the **Playback** menu, the space bar, or **⌘←** and **⌘→** for transport controls.
 
 The Mac window opens at a desktop-friendly size and its content area can be resized down to 200 × 200 points (macOS layout units). The standard macOS title bar adds its own height to the outer frame; the title text next to the window controls is hidden while the controls remain available.
@@ -206,6 +206,28 @@ xcodebuild build \
 
 This builds both the Mac Catalyst app and its compatible widget extension. The build output is written outside the repository.
 
+### Prove the universal Mac binary
+
+The local Intel run proves only the `x86_64` runtime path. A separate artifact check must prove that the distributable Mac Catalyst app and its widget extension retain both required architectures:
+
+```bash
+xcodebuild build \
+  -project ios-app/AmbientSpace.xcodeproj \
+  -scheme AmbientSpace \
+  -destination 'generic/platform=macOS,variant=Mac Catalyst' \
+  -derivedDataPath /tmp/AmbientSpaceUniversalBuild \
+  ARCHS='x86_64 arm64' \
+  ONLY_ACTIVE_ARCH=NO \
+  CODE_SIGNING_ALLOWED=NO
+
+lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/MacOS/AmbientSpace
+lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/MacOS/AmbientSpaceWidgets
+plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/Info.plist
+plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/Info.plist
+```
+
+The two `lipo` results must list `x86_64` and `arm64`; both minimum-system-version results must be `13.0`. The `arm64` slice is build evidence. It is not an Apple Silicon runtime test. See [testing instructions](docs/TESTING.md) and the [verification record](docs/VERIFICATION.md) for this distinction.
+
 ## Install on an iPhone
 
 First connect and unlock the phone, trust the Mac, and enable **Developer Mode** under **Settings > Privacy & Security**. In Xcode, make sure your Apple account is signed in. Pair the device in **Window > Devices and Simulators**. Once paired and available on the local network, the script can deploy wirelessly without a separate wireless flag.
@@ -249,12 +271,21 @@ For a first deployment without a matching local provisioning profile, open the p
 
 ## Verification and known limitations
 
-Last recorded checks: **October 8, 2026**.
+The local verification baseline is an iMac18,3 with an Intel `x86_64` processor, macOS 13.7.8, and Xcode 15.2. The compatibility verification target is the Intel runtime plus a separate universal-artifact inspection. No Apple Silicon runtime result is claimed while an Apple Silicon Mac is unavailable.
+
+The historical entries in [the verification record](docs/VERIFICATION.md) remain labelled with their original dates and toolchains. Results from Xcode 27 or an arm64 Mac do not replace the Xcode 15.2 Intel baseline for this compatibility task.
+
+- The supported Mac Catalyst deployment target is macOS 13.0.
+- The Mac Catalyst application and widget extension must contain both `x86_64` and `arm64` slices in a universal build.
+- The deployment workflow must validate the application bundle, widget extension, minimum system version, architectures, installation, launch, and at least one existing playback interaction.
+- Intel runtime verification does not establish Apple Silicon runtime compatibility. That requires a later run on Apple Silicon hardware.
+
+Previously recorded checks, retained as historical results:
 
 - All **19 portable Swift tests** and **17 Python tests** pass.
 - The app and widget extension compile in an unsigned device build, and the test targets compile with `build-for-testing`.
 - The app and widget extension compile in an unsigned Mac Catalyst build with Xcode 27, including the desktop window configuration and Mac playback commands.
-- The macOS deployment script builds, installs, launches, and verifies the local Catalyst app on this Mac without signing.
+- The macOS deployment script built, installed, launched, and verified the local Catalyst app on the Mac used for that historical run without signing. That result does not establish the Xcode 15.2 Intel baseline or Apple Silicon runtime behavior.
 - A signed build was installed, launched, and verified on an iPhone 15 Pro. See the [verification record](docs/VERIFICATION.md) for the broader manual checklist.
 
 Limitations to know before using or contributing:
@@ -267,7 +298,7 @@ Limitations to know before using or contributing:
 - Apple's built-in Now Playing transport button always uses the system play/pause artwork. AmbientSpace supplies the current sound's SF Symbol as Now Playing artwork and uses it on its own controls and widgets, but cannot replace that system transport symbol.
 - WidgetKit controls when timelines are rendered. AmbientSpace requests a refresh after every playback change, but iOS may defer a visual widget update. Playback actions still run in the app process through `AudioPlaybackIntent`.
 - Mac Catalyst has no iOS-style Live Activity or Lock Screen. The Mac build uses Now Playing, the Playback menu, keyboard shortcuts, and the desktop widget as its system-level equivalents.
-- The Mac Catalyst interface has been manually checked for full-row accessibility, continuous gradients, hidden title text, and the 200 × 200 point content minimum. Full desktop listening, VoiceOver, keyboard focus, media-key, and mixing checks still belong to the release checklist before distribution.
+- The Mac Catalyst interface has been manually checked for full-row accessibility, continuous gradients, hidden title text, and the 200 × 200 point content minimum. Full desktop listening, VoiceOver, keyboard focus, media-key, and mixing checks still belong to the release checklist before distribution. Those checks do not substitute for Apple Silicon runtime verification.
 
 ### Run the tests
 
@@ -290,5 +321,8 @@ The source code is provided under the [MIT License](LICENSE). Local recordings, 
 
 - [Audio folders, translations, and validation](audio-files/README.md)
 - [Architecture and known limitations](docs/ARCHITECTURE.md)
+- [Testing instructions](docs/TESTING.md)
+- [Verification record](docs/VERIFICATION.md)
+- [Mac Catalyst architecture decision](docs/adr/0001-mac-catalyst-macos-13-universal-binary.md)
 - [Contributing](CONTRIBUTING.md)
 - [Open-source release checklist](docs/OPEN_SOURCE_CHECKLIST.md)
