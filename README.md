@@ -179,6 +179,17 @@ The default destination is `~/Applications/AmbientSpace.app`. If an older copy e
 
 The full deployment flow clicks an existing track row through its accessibility identifier to exercise play/pause. Before running it, give the terminal that starts the script access under **System Settings > Privacy & Security > Accessibility**. If Accessibility access is unavailable or interactive launch verification is not needed, use `--no-launch` (or `--build-only` when installation is also unnecessary).
 
+The deployment script reads recordings from `audio-files/` in the current checkout by default. Because recordings and their metadata are intentionally ignored by Git, a separate worktree may not contain the local audio library. Point the build at an existing local library with `--audio-source` or `AUDIO_SOURCE_DIR`; the directory must contain the track folders described in [the audio guide](audio-files/README.md). For example:
+
+```bash
+scripts/deploy_macos.sh \
+  --audio-source /path/to/audio-files \
+  --install-path /Applications/AmbientSpace.app \
+  --no-launch
+```
+
+The main app copies each recording and cover image into its bundle. The widget receives the same catalog metadata but deliberately does not contain a second copy of the media. The build fails early when the configured audio source directory does not exist, instead of silently using an unintended path.
+
 ### Command-line build without signing
 
 Run from the repository root:

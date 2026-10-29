@@ -422,7 +422,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$SRCROOT/../audio-files\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n";
+			shellScript = "set -e\nAUDIO_SOURCE_DIR=\"${AMBIENTSPACE_AUDIO_SOURCE_DIR:-$SRCROOT/../audio-files}\"\nif [ ! -d \"$AUDIO_SOURCE_DIR\" ]; then\n    echo \"error: Audio source directory not found: $AUDIO_SOURCE_DIR\"\n    exit 1\nfi\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$AUDIO_SOURCE_DIR\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n";
 			showEnvVarsInLog = 0;
 		};
 		WA0000000000000000000001 /* Build Widget Audio Catalog */ = {
@@ -442,7 +442,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$SRCROOT/../audio-files\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" --metadata-only\n";
+			shellScript = "set -e\nAUDIO_SOURCE_DIR=\"${AMBIENTSPACE_AUDIO_SOURCE_DIR:-$SRCROOT/../audio-files}\"\nif [ ! -d \"$AUDIO_SOURCE_DIR\" ]; then\n    echo \"error: Audio source directory not found: $AUDIO_SOURCE_DIR\"\n    exit 1\nfi\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$AUDIO_SOURCE_DIR\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" --metadata-only\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

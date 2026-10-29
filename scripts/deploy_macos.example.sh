@@ -12,6 +12,7 @@ DEVELOPMENT_TEAM="${DEVELOPMENT_TEAM:-}"
 CODE_SIGNING_ALLOWED="${CODE_SIGNING_ALLOWED:-NO}"
 MAC_ARCH="${MAC_ARCH:-universal}"
 DERIVED_DATA_PATH="${DERIVED_DATA_PATH:-$ROOT_DIR/.temporary/macos-deploy}"
+AUDIO_SOURCE_DIR="${AUDIO_SOURCE_DIR:-$ROOT_DIR/audio-files}"
 LAUNCH_TIMEOUT_SECONDS="${LAUNCH_TIMEOUT_SECONDS:-20}"
 
 if [[ -n "${HOME:-}" ]]; then
@@ -37,6 +38,7 @@ Builds, installs, launches, and verifies AmbientSpace as a Mac Catalyst app.
 Options:
   --bundle-id ID          Bundle identifier for this local build
   --configuration NAME    Xcode configuration. Default: $CONFIGURATION
+  --audio-source PATH     Local audio source directory. Default: $AUDIO_SOURCE_DIR
   --derived-data PATH     Xcode build directory. Default: $DERIVED_DATA_PATH
   --install-path PATH     Destination .app path. Default: $INSTALL_PATH
   --team ID               Use this Apple Developer team and enable signing
@@ -53,11 +55,14 @@ Environment variables:
   CODE_SIGNING_ALLOWED    YES or NO. Default: $CODE_SIGNING_ALLOWED
   MAC_ARCH                Catalyst architecture or universal. Default: $MAC_ARCH
   DERIVED_DATA_PATH       Same as --derived-data
+  AUDIO_SOURCE_DIR        Same as --audio-source. The directory is read-only input.
   INSTALL_PATH            Same as --install-path
   LAUNCH_TIMEOUT_SECONDS  Launch verification timeout. Default: $LAUNCH_TIMEOUT_SECONDS
 
 Examples:
   BUNDLE_ID=com.example.ambientspace bash scripts/deploy_macos.example.sh
+  AUDIO_SOURCE_DIR=/path/to/audio-files \\
+    bash scripts/deploy_macos.example.sh --build-only
   INSTALL_PATH="\$HOME/Applications/AmbientSpace.app" \\
     bash scripts/deploy_macos.example.sh --build-only
   bash scripts/deploy_macos.example.sh --signed --team TEAM_ID
@@ -84,6 +89,11 @@ parse_arguments() {
             --configuration)
                 [[ $# -ge 2 && -n "$2" ]] || fail "--configuration requires a name."
                 CONFIGURATION="$2"
+                shift 2
+                ;;
+            --audio-source)
+                [[ $# -ge 2 && -n "$2" ]] || fail "--audio-source requires a directory."
+                AUDIO_SOURCE_DIR="$2"
                 shift 2
                 ;;
             --derived-data)
@@ -134,6 +144,8 @@ parse_arguments() {
 
 validate_configuration() {
     [[ -d "$PROJECT_PATH" ]] || fail "Xcode project not found at: $PROJECT_PATH"
+    [[ -d "$AUDIO_SOURCE_DIR" ]] || fail "Audio source directory not found: $AUDIO_SOURCE_DIR. Pass --audio-source PATH or set AUDIO_SOURCE_DIR."
+    AUDIO_SOURCE_DIR="$(cd "$AUDIO_SOURCE_DIR" && pwd -P)"
     [[ -n "$BUNDLE_ID" && "$BUNDLE_ID" =~ ^[A-Za-z0-9][A-Za-z0-9.-]*$ ]] || \
         fail "BUNDLE_ID must contain only letters, numbers, dots, and hyphens."
     [[ "$CODE_SIGNING_ALLOWED" == "YES" || "$CODE_SIGNING_ALLOWED" == "NO" ]] || \
@@ -158,6 +170,7 @@ build_app() {
         -derivedDataPath "$DERIVED_DATA_PATH"
         "CODE_SIGNING_ALLOWED=$CODE_SIGNING_ALLOWED"
         "AMBIENTSPACE_BUNDLE_ID=$BUNDLE_ID"
+        "AMBIENTSPACE_AUDIO_SOURCE_DIR=$AUDIO_SOURCE_DIR"
     )
 
     if [[ "$MAC_ARCH" == "universal" ]]; then
