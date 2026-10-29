@@ -15,6 +15,16 @@ The deployment script validates the bundle identifier, embedded widget extension
 
 The entries below are historical records from earlier changes and toolchains. Their dates, hardware, architectures, and minimum-system-version claims remain unchanged as historical evidence; they do not override the current split contract, the macOS 13.0 app floor, the macOS 14.0 widget floor, or the universal-binary requirement.
 
+## 2026-10-29 — Intel iMac compatibility verification
+
+- Final verification ran on the Intel iMac18,3 with macOS 13.7.8, Xcode 15.2, the macOS 14.2 SDK, and the iOS 17.2 SDK. The universal Mac Catalyst build succeeded.
+- The application plist reported `LSMinimumSystemVersion` `13.0`, and the embedded `AmbientSpaceWidgets` plist reported `LSMinimumSystemVersion` `14.0`. `lipo` reported `x86_64 arm64` for both the app executable and the embedded widget executable.
+- The unsigned app was installed and launched successfully at `.temporary/Applications/AmbientSpace.app`, confirming the Intel `x86_64` runtime path.
+- The deployment script attempted its real play/pause interaction by using the track-row accessibility identifier. System Events did not have Accessibility permission, so that interaction could not be completed. This is a concrete machine-permission blocker, not a build failure. Grant the terminal access under **System Settings > Privacy & Security > Accessibility**, or use `--no-launch` when interactive launch verification is not possible.
+- The macOS 14 widget runtime and direct App Intent actions were not runtime-tested on this macOS 13 host. The source, embedded widget bundle, deployment target, and universal-build checks preserve those behaviors for a separate macOS 14 or later runtime check.
+- The Python suite passed all 17 tests, the portable Swift package passed all 19 tests, the Mac deployment shell contract test passed with real Mach-O fixtures and `lipo`, and the unsigned generic iOS build passed with the iOS 17.2 SDK.
+- Apple Silicon runtime compatibility remains unverified. The `arm64` slice in the universal artifacts is build evidence only and does not replace a runtime test on Apple Silicon hardware.
+
 ## Historical verification entries
 
 ## 2026-10-07 — Final Mac Catalyst interaction, resizing, and install
