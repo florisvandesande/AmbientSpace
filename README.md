@@ -7,7 +7,7 @@
 <p align="center">Ambient recordings, at your own volume.</p>
 
 <p align="center">
-  iPhone · Mac Catalyst · iOS 17+ · macOS 13+ · Intel and Apple Silicon · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
+  iPhone · Mac Catalyst · iOS 17+ · macOS 13+ app · macOS 14+ widget · Intel and Apple Silicon · SwiftUI · <a href="LICENSE">MIT licensed</a> · Preview
 </p>
 
 <p align="center">
@@ -27,10 +27,10 @@ AmbientSpace is a small, native iPhone and Mac app for looping ambient recording
 - **Independent volume.** Turn AmbientSpace down without changing another app's volume. Hardware volume buttons still control the phone's system volume.
 - **Infinite looping and transitions.** Every recording repeats indefinitely by default, with a six-second crossfade into the next repetition and when switching recordings.
 - **System playback.** Background mode mixes with other apps. Foreground mode provides artwork and play, pause, previous, and next controls on the Lock Screen and in Control Center. When metadata contains an SF Symbol, that symbol is used as the system artwork.
-- **Mac Catalyst.** Run the same library locally on macOS through Xcode. The Mac build adds a Playback menu with keyboard shortcuts, a resizable desktop window without a visible title label, and a Mac-compatible controls widget. Foreground mode registers Now Playing metadata and media commands; macOS does not provide iOS's exclusive audio-session behavior.
+- **Mac Catalyst.** Run the same library locally on macOS through Xcode. The main Mac Catalyst app supports macOS 13.0 and later and adds a Playback menu with keyboard shortcuts and a resizable desktop window without a visible title label. The AmbientSpaceWidgets extension is available on macOS 14.0 and later; the app remains usable without a widget on macOS 13. Foreground mode registers Now Playing metadata and media commands; macOS does not provide iOS's exclusive audio-session behavior.
 - **System actions.** “Play a random sound” and “Play sound” are available through App Shortcuts. On iOS 18 or later, a reusable sound control can be added multiple times to Control Center, the Lock Screen, or the Action button. Each copy is configured with a sound and displays that sound's SF Symbol.
-- **Interactive widgets.** A configurable Small widget offers up to nine positions for random playback, global play/pause, or chosen sounds. Circular and rectangular Lock Screen widgets show and control one chosen sound on iOS; the Mac Catalyst extension provides the compatible desktop widget families. Widget actions are available on iOS 17 or later and in the Mac Catalyst build.
-- **Live Activity.** On iOS, while audio is playing, the current sound and its symbol appear on the Lock Screen and supported Dynamic Island devices. Tapping it opens AmbientSpace. Pausing or stopping ends the Live Activity. Live Activities and Dynamic Island are iOS-only; Mac uses Now Playing, menu commands, and widgets instead.
+- **Interactive widgets.** A configurable Small widget offers up to nine positions for random playback, global play/pause, or chosen sounds. Circular and rectangular Lock Screen widgets show and control one chosen sound on iOS. On Mac Catalyst, the existing App Intent configuration and direct widget actions remain available through the AmbientSpaceWidgets extension on macOS 14.0 and later. macOS 13 runs the app without a usable widget.
+- **Live Activity.** On iOS, while audio is playing, the current sound and its symbol appear on the Lock Screen and supported Dynamic Island devices. Tapping it opens AmbientSpace. Pausing or stopping ends the Live Activity. Live Activities and Dynamic Island are iOS-only. The Mac app uses Now Playing and menu commands; its widget is available only on macOS 14.0 and later.
 - **Sleep timer.** Choose 15, 30, 45, or 60 minutes, or a custom duration from one minute to twelve hours. Audio fades during the final fifteen seconds.
 - **A simple library.** Color gradients come from recording metadata. Tap anywhere on a row to start or pause its sound and reveal its description.
 - **Seven languages.** Recording metadata and the interface support English, Dutch, French, German, Spanish, Italian, and Brazilian Portuguese and follow the phone's language preferences. There is no in-app language setting.
@@ -99,16 +99,16 @@ The Mac screenshot below was captured from the installed Mac Catalyst build on O
 
 ## Requirements
 
-- A Mac with Xcode 15.2 or later and the iOS and macOS SDKs. The supported Mac Catalyst deployment target is macOS 13.0 or later. The maintained local verification baseline is Xcode 15.2 on macOS 13.7.8 with the macOS 14.2 and iOS 17.2 SDKs.
+- A Mac with Xcode 15.2 or later and the iOS and macOS SDKs. The main Mac Catalyst app supports macOS 13.0 or later. The AmbientSpaceWidgets extension requires macOS 14.0 or later. The maintained local verification baseline is Xcode 15.2 on macOS 13.7.8 with the macOS 14.2 and iOS 17.2 SDKs.
 - iPhone with iOS 17.0 or later.
-- For Mac use: macOS 13.0 or later on an Intel Mac (`x86_64`) or Apple Silicon Mac (`arm64`). Mac Catalyst release builds are expected to contain both slices in the application and its embedded widget extension.
+- For Mac use: macOS 13.0 or later on an Intel Mac (`x86_64`) or Apple Silicon Mac (`arm64`) for the main app. A usable AmbientSpaceWidgets extension requires macOS 14.0 or later. The distributable app and extension remain universal with `x86_64` and `arm64` slices.
 - Bash and the standard macOS command-line tools `ditto`, `mktemp`, `open`, `osascript`, `plutil`, and `pgrep` for the optional deployment script.
 - Python 3.9 or later, used only during development/building.
 - For installation on a physical phone: your own Apple account configured in Xcode and a development signing team.
 
 The project's deployment target is iOS 17.0. Live Activities and interactive Home Screen and Lock Screen widgets are available on iOS 17. Configurable Control Center controls require iOS 18 and a toolchain that supports those controls; the Xcode 15.2 baseline verifies the iOS 17-compatible surfaces. Older builds and devices keep the in-app, widget, and Now Playing controls that their operating system supports.
 
-Widgets and the app share only the current sound identifier and play/pause state through the App Group `group.<app bundle identifier>`. Xcode must enable the same App Groups capability for both **AmbientSpace** and **AmbientSpaceWidgets** when signing. The committed entitlement files derive the group from `AMBIENTSPACE_BUNDLE_ID`; a fork using `com.example.ambientspace` therefore uses `group.com.example.ambientspace`. The widget extension receives a metadata-only catalog and does not contain a second copy of recordings or cover images.
+Widgets and the app share only the current sound identifier and play/pause state through the App Group `group.<app bundle identifier>`. Xcode must enable the same App Groups capability for both **AmbientSpace** and **AmbientSpaceWidgets** when signing. The committed entitlement files derive the group from `AMBIENTSPACE_BUNDLE_ID`; a fork using `com.example.ambientspace` therefore uses `group.com.example.ambientspace`. The widget extension receives a metadata-only catalog and does not contain a second copy of recordings or cover images. Its existing App Intent configuration and direct widget actions must remain enabled; macOS 13 does not load a usable widget from that extension.
 
 ## Getting started
 
@@ -155,7 +155,7 @@ AmbientSpace uses Mac Catalyst, which lets the SwiftUI iOS app run as a native m
 
 The Mac window opens at a desktop-friendly size and its content area can be resized down to 200 × 200 points (macOS layout units). The standard macOS title bar adds its own height to the outer frame; the title text next to the window controls is hidden while the controls remain available.
 
-The app volume slider changes AmbientSpace only. Background mode mixes with other Mac apps. Foreground mode publishes Now Playing information and enables media commands, but macOS does not offer the iOS `AVAudioSession` exclusivity boundary. The iOS Live Activity, Dynamic Island, Lock Screen widgets, and iOS 18 Control Center controls remain iOS-only.
+The app volume slider changes AmbientSpace only. Background mode mixes with other Mac apps. Foreground mode publishes Now Playing information and enables media commands, but macOS does not offer the iOS `AVAudioSession` exclusivity boundary. The iOS Live Activity, Dynamic Island, Lock Screen widgets, and iOS 18 Control Center controls remain iOS-only. The main Mac app runs on macOS 13 without a usable widget; on macOS 14 or later, AmbientSpaceWidgets provides the existing configurable widget and direct actions.
 
 For a signed Mac distribution, configure your own team and bundle identifier in Xcode, archive the Catalyst scheme, and follow Apple's current Mac Catalyst distribution and notarization requirements. This repository currently documents local Xcode use; it does not include a production signing or notarization workflow.
 
@@ -204,7 +204,7 @@ xcodebuild build \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-This builds both the Mac Catalyst app and its compatible widget extension. The build output is written outside the repository.
+This builds both the Mac Catalyst app and its compatible widget extension. The app is usable on macOS 13.0 and later; the embedded widget extension is usable only on macOS 14.0 and later. The build output is written outside the repository.
 
 ### Prove the universal Mac binary
 
@@ -220,13 +220,15 @@ xcodebuild build \
   ONLY_ACTIVE_ARCH=NO \
   CODE_SIGNING_ALLOWED=NO
 
-lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/MacOS/AmbientSpace
-lipo -info /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/MacOS/AmbientSpaceWidgets
-plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/Info.plist
-plutil -extract LSMinimumSystemVersion raw -o - /tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app/Contents/PlugIns/AmbientSpaceWidgets.appex/Contents/Info.plist
+APP_PATH=/tmp/AmbientSpaceUniversalBuild/Build/Products/Debug-maccatalyst/AmbientSpace.app
+WIDGET_PATH="$APP_PATH/Contents/PlugIns/AmbientSpaceWidgets.appex"
+lipo -info "$APP_PATH/Contents/MacOS/AmbientSpace"
+lipo -info "$WIDGET_PATH/Contents/MacOS/AmbientSpaceWidgets"
+plutil -extract LSMinimumSystemVersion raw -o - "$APP_PATH/Contents/Info.plist"
+plutil -extract LSMinimumSystemVersion raw -o - "$WIDGET_PATH/Contents/Info.plist"
 ```
 
-The two `lipo` results must list `x86_64` and `arm64`; both minimum-system-version results must be `13.0`. The `arm64` slice is build evidence. It is not an Apple Silicon runtime test. See [testing instructions](docs/TESTING.md) and the [verification record](docs/VERIFICATION.md) for this distinction.
+The two `lipo` results must list `x86_64` and `arm64`. The application plist must report `LSMinimumSystemVersion` `13.0`; the embedded AmbientSpaceWidgets plist must report `LSMinimumSystemVersion` `14.0`. The `arm64` slice is build evidence. It is not an Apple Silicon runtime test. On macOS 13, validate the app itself and do not treat the unavailable widget as a failed app launch. On macOS 14 or later, validate the widget and its direct actions separately. See [testing instructions](docs/TESTING.md) and the [verification record](docs/VERIFICATION.md) for this distinction.
 
 ## Install on an iPhone
 
@@ -271,13 +273,13 @@ For a first deployment without a matching local provisioning profile, open the p
 
 ## Verification and known limitations
 
-The local verification baseline is an iMac18,3 with an Intel `x86_64` processor, macOS 13.7.8, and Xcode 15.2. The compatibility verification target is the Intel runtime plus a separate universal-artifact inspection. No Apple Silicon runtime result is claimed while an Apple Silicon Mac is unavailable.
+The local verification baseline is an iMac18,3 with an Intel `x86_64` processor, macOS 13.7.8, and Xcode 15.2. The compatibility verification target is the macOS 13 app runtime plus a separate universal-artifact inspection. Widget runtime verification requires macOS 14 or later. No Apple Silicon runtime result is claimed while an Apple Silicon Mac is unavailable.
 
 The historical entries in [the verification record](docs/VERIFICATION.md) remain labelled with their original dates and toolchains. Results from Xcode 27 or an arm64 Mac do not replace the Xcode 15.2 Intel baseline for this compatibility task.
 
-- The supported Mac Catalyst deployment target is macOS 13.0.
-- The Mac Catalyst application and widget extension must contain both `x86_64` and `arm64` slices in a universal build.
-- The deployment workflow must validate the application bundle, widget extension, minimum system version, architectures, installation, launch, and at least one existing playback interaction.
+- The main Mac Catalyst app supports macOS 13.0 or later; the AmbientSpaceWidgets extension supports macOS 14.0 or later.
+- The Mac Catalyst application and embedded widget extension must retain both `x86_64` and `arm64` slices in a universal build.
+- Verification must inspect `LSMinimumSystemVersion` `13.0` in the app plist and `14.0` in the widget plist, then validate installation, launch, and at least one existing playback interaction for the app. Widget actions require a macOS 14 or later test.
 - Intel runtime verification does not establish Apple Silicon runtime compatibility. That requires a later run on Apple Silicon hardware.
 
 Previously recorded checks, retained as historical results:
@@ -297,7 +299,8 @@ Limitations to know before using or contributing:
 - The app has been built, installed, and launched on a physical iPhone 15 Pro. The supplied screenshots verify the Live Activity and Dynamic Island presentation. Dynamic Island deep linking and all iOS 18 control interactions still require the complete physical-device checklist.
 - Apple's built-in Now Playing transport button always uses the system play/pause artwork. AmbientSpace supplies the current sound's SF Symbol as Now Playing artwork and uses it on its own controls and widgets, but cannot replace that system transport symbol.
 - WidgetKit controls when timelines are rendered. AmbientSpace requests a refresh after every playback change, but iOS may defer a visual widget update. Playback actions still run in the app process through `AudioPlaybackIntent`.
-- Mac Catalyst has no iOS-style Live Activity or Lock Screen. The Mac build uses Now Playing, the Playback menu, keyboard shortcuts, and the desktop widget as its system-level equivalents.
+- Mac Catalyst has no iOS-style Live Activity or Lock Screen. The macOS 13 app uses Now Playing, the Playback menu, and keyboard shortcuts. On macOS 14 or later, the desktop widget remains available as an additional system-level surface with its existing App Intent configuration and direct actions.
+- A macOS 13 installation without a usable AmbientSpaceWidgets widget is expected. Do not lower the widget's macOS 14 requirement or remove its App Intent configuration to make it appear on macOS 13.
 - The Mac Catalyst interface has been manually checked for full-row accessibility, continuous gradients, hidden title text, and the 200 × 200 point content minimum. Full desktop listening, VoiceOver, keyboard focus, media-key, and mixing checks still belong to the release checklist before distribution. Those checks do not substitute for Apple Silicon runtime verification.
 
 ### Run the tests
