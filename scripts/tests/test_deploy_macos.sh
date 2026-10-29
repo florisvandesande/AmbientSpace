@@ -9,6 +9,11 @@ TEST_ROOT="$(mktemp -d "${TMPDIR:-/tmp}/ambientspace-deploy-contract.XXXXXX")"
 FAKE_BIN="$TEST_ROOT/bin"
 mkdir -p "$FAKE_BIN"
 
+UNIVERSAL_FIXTURE="$TEST_ROOT/universal-fixture"
+X86_64_FIXTURE="$TEST_ROOT/x86_64-fixture"
+cp /usr/bin/true "$UNIVERSAL_FIXTURE"
+lipo -thin x86_64 "$UNIVERSAL_FIXTURE" -output "$X86_64_FIXTURE"
+
 cleanup() {
     rm -rf "$TEST_ROOT"
 }
@@ -96,20 +101,10 @@ cat > "$widget_path/Contents/Info.plist" <<PLIST
 </plist>
 PLIST
 
-: > "$app_path/Contents/MacOS/AmbientSpace"
-: > "$widget_path/Contents/MacOS/AmbientSpaceWidgets"
+cp "${FAKE_EXECUTABLE_FIXTURE:?}" "$app_path/Contents/MacOS/AmbientSpace"
+cp "${FAKE_EXECUTABLE_FIXTURE:?}" "$widget_path/Contents/MacOS/AmbientSpaceWidgets"
 FAKE_XCODEBUILD
 chmod +x "$FAKE_BIN/xcodebuild"
-
-cat > "$FAKE_BIN/lipo" <<'FAKE_LIPO'
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-[[ "${1:-}" == "-archs" ]] || exit 2
-printf '%s\n' "${FAKE_ARCHS:?}"
-FAKE_LIPO
-chmod +x "$FAKE_BIN/lipo"
 
 cat > "$FAKE_BIN/open" <<'FAKE_OPEN'
 #!/usr/bin/env bash
@@ -158,6 +153,7 @@ run_deploy() {
         FAKE_ONLY_ACTIVE_ARCH="${FAKE_ONLY_ACTIVE_ARCH_VALUE:-NO}" \
         FAKE_APP_MINIMUM="${FAKE_APP_MINIMUM_VALUE:-13.0}" \
         FAKE_WIDGET_MINIMUM="${FAKE_WIDGET_MINIMUM_VALUE:-14.0}" \
+        FAKE_EXECUTABLE_FIXTURE="${FAKE_EXECUTABLE_FIXTURE_VALUE:-$UNIVERSAL_FIXTURE}" \
         FAKE_XCODEBUILD_LOG="$TEST_ROOT/xcodebuild.log" \
         BUNDLE_ID="com.example.ambientspace" \
         DERIVED_DATA_PATH="$TEST_ROOT/build" \
@@ -182,12 +178,17 @@ run_deploy 0 "$TEST_ROOT/success.log" build-only
 grep -q '^ARCHS=x86_64 arm64$' "$TEST_ROOT/xcodebuild.log"
 grep -q '^ONLY_ACTIVE_ARCH=NO$' "$TEST_ROOT/xcodebuild.log"
 
-FAKE_ARCHS_VALUE="x86_64" run_deploy 1 "$TEST_ROOT/missing-arm64.log" build-only
+FAKE_EXECUTABLE_FIXTURE_VALUE="$X86_64_FIXTURE" run_deploy 1 "$TEST_ROOT/missing-arm64.log" build-only
 FAKE_APP_MINIMUM_VALUE="14.0" run_deploy 1 "$TEST_ROOT/high-app-minimum.log" build-only
 FAKE_WIDGET_MINIMUM_VALUE="13.0" run_deploy 1 "$TEST_ROOT/low-widget-minimum.log" build-only
 
 run_deploy 0 "$TEST_ROOT/full-deploy.log" full
 [[ -d "$TEST_ROOT/install/AmbientSpace.app" ]]
-grep -q 'click button "Volume and audio mode"' "$TEST_ROOT/osascript.log"
+grep -q 'trackRow-' "$TEST_ROOT/osascript.log"
+grep -q 'AXIdentifier' "$TEST_ROOT/osascript.log"
+if grep -q 'Volume and audio mode' "$TEST_ROOT/osascript.log"; then
+    printf '%s\n' 'The deployment interaction must not depend on the English volume label.' >&2
+    exit 1
+fi
 
 printf '%s\n' 'Mac deployment contract tests passed.'

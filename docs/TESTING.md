@@ -14,8 +14,11 @@ From the repository root:
 python3 -m unittest discover -s scripts/tests -p 'test_*.py'
 bash -n scripts/deploy_ios_to_iphone.sh
 bash -n scripts/deploy_macos.example.sh
+bash scripts/tests/test_deploy_macos.sh
 swift test --scratch-path /tmp/AmbientSpaceCoreTests
 ```
+
+The Mac deployment contract test uses real Mach-O fixtures and the installed macOS `lipo` command. It verifies universal-binary success for the app and widget, failure when the arm64 slice is missing, the separate minimum-system-version checks, and the identifier-based playback interaction without faking `lipo` output. `lipo` is therefore required on macOS for this test and for the deployment script's universal-artifact validation.
 
 List installed simulator destinations:
 
@@ -75,6 +78,8 @@ BUNDLE_ID=com.example.ambientspace \
 ```
 
 Use `--build-only` when installation or launch is not required. A deployment on the Intel iMac must execute the app's `x86_64` slice. The universal artifact and split plist checks above must still be run separately; an Intel-only build is insufficient evidence for Apple Silicon support, and a macOS 13 run cannot verify widget availability.
+
+The full deployment flow clicks an existing track row using its accessibility identifier, so the terminal that starts the script needs Accessibility access under **System Settings > Privacy & Security > Accessibility**. If that permission cannot be granted, use `--no-launch` to install and validate the bundle without launching it. Use `--build-only` to skip installation and launch as well.
 
 Test the deployment script without installing or launching:
 

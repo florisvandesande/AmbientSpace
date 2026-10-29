@@ -208,7 +208,7 @@ validate_architectures() {
     if [[ "$MAC_ARCH" == "universal" ]]; then
         [[ " $actual_architectures " == *" x86_64 "* ]] || \
             fail "$bundle_name does not contain x86_64 (found: $actual_architectures)."
-        [[ " $actual_architectures " == *" arm64 "* ]] || \
+        [[ " $actual_architectures " == *" arm64 "* || " $actual_architectures " == *" arm64e "* ]] || \
             fail "$bundle_name does not contain arm64 (found: $actual_architectures)."
     elif [[ "$actual_architectures" != *"$MAC_ARCH"* ]]; then
         fail "$bundle_name does not contain $MAC_ARCH (found: $actual_architectures)."
@@ -358,20 +358,20 @@ exercise_interaction() {
     require_command osascript
 
     local interaction_script
-    interaction_script='tell application "System Events" to tell process "AmbientSpace" to click button "Volume and audio mode" of window 1'
+    interaction_script='tell application "System Events" to tell process "AmbientSpace" to click (first UI element of window 1 whose value of attribute "AXIdentifier" starts with "trackRow-")'
 
-    echo "Exercising the AmbientSpace volume control..."
+    echo "Exercising the AmbientSpace playback row..."
     local attempt
     local interaction_error=""
     for ((attempt = 1; attempt <= LAUNCH_TIMEOUT_SECONDS; attempt++)); do
         if interaction_error="$(osascript -e "$interaction_script" 2>&1)"; then
-            echo "Interaction verified: the volume control accepted a click."
+            echo "Interaction verified: a playback row accepted a click."
             return
         fi
         sleep 1
     done
 
-    fail "The app launched, but the volume control interaction could not be verified. Grant Accessibility access to the terminal or use --no-launch. Last error: $interaction_error"
+    fail "The app launched, but the playback row interaction could not be verified. Grant Accessibility access to your terminal under System Settings > Privacy & Security > Accessibility, or use --no-launch. Last error: $interaction_error"
 }
 
 main() {
