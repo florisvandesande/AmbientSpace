@@ -75,11 +75,21 @@ final class SleepTimerController: ObservableObject {
     private func startTimer() {
         timer?.invalidate()
         let timer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
-            if #available(macOS 14, *) {
+#if targetEnvironment(macCatalyst)
+            if #available(macCatalyst 17.0, *) {
                 MainActor.assumeIsolated { self?.refresh() }
             } else {
                 Task { @MainActor [weak self] in self?.refresh() }
             }
+#elseif os(macOS)
+            if #available(macOS 14.0, *) {
+                MainActor.assumeIsolated { self?.refresh() }
+            } else {
+                Task { @MainActor [weak self] in self?.refresh() }
+            }
+#else
+            MainActor.assumeIsolated { self?.refresh() }
+#endif
         }
         timer.tolerance = 0.1
         RunLoop.main.add(timer, forMode: .common)
