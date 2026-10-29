@@ -67,7 +67,7 @@ struct ContentView: View {
                 Text(playback.errorMessage ?? String(localized: "Unknown error"))
             }
         )
-        .onChange(of: scenePhase) { _, phase in
+        .onChange(of: scenePhase) { phase in
             if phase == .active { sleepTimer.refresh() }
         }
     }

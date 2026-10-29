@@ -238,6 +238,10 @@ struct SoundWidgetConfigurationIntent: WidgetConfigurationIntent {
     var positions: [AmbientWidgetActionEntity?] {
         [position1, position2, position3, position4, position5, position6, position7, position8, position9]
     }
+
+    func perform() async throws -> some IntentResult {
+        .result()
+    }
 }
 
 struct LockScreenSoundConfigurationIntent: WidgetConfigurationIntent {
@@ -245,6 +249,10 @@ struct LockScreenSoundConfigurationIntent: WidgetConfigurationIntent {
     static let description = IntentDescription("Choose the sound shown on the Lock Screen.")
 
     @Parameter(title: "Sound") var sound: AmbientSoundEntity?
+
+    func perform() async throws -> some IntentResult {
+        .result()
+    }
 }
 
 #if compiler(>=6.0)

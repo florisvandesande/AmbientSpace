@@ -314,7 +314,7 @@ final class AudioPlaybackController: ObservableObject {
             PlaybackWidgetState(currentTrackID: currentTrack?.id, isPlaying: isPlaying)
         )
         WidgetCenter.shared.reloadAllTimelines()
-#if os(iOS) && !targetEnvironment(macCatalyst)
+#if compiler(>=6.0) && os(iOS) && !targetEnvironment(macCatalyst)
         if #available(iOS 18.0, *) {
             ControlCenter.shared.reloadAllControls()
         }

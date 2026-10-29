@@ -9,22 +9,26 @@ struct AmbientSpaceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            #if DEBUG
-            ContentView(playback: playback)
-                .modifier(AppearanceTestOverrides())
-                .modifier(WindowContentSizing())
-                .modifier(WindowTitleBarConfiguration())
-            #else
-            ContentView(playback: playback)
-                .modifier(WindowContentSizing())
-                .modifier(WindowTitleBarConfiguration())
-            #endif
+            windowContent
         }
 #if targetEnvironment(macCatalyst)
-        .windowResizability(.contentSize)
         .commands {
             AmbientSpacePlaybackCommands(playback: playback)
         }
+#endif
+    }
+
+    @ViewBuilder
+    private var windowContent: some View {
+#if DEBUG
+        ContentView(playback: playback)
+            .modifier(AppearanceTestOverrides())
+            .modifier(WindowContentSizing())
+            .modifier(WindowTitleBarConfiguration())
+#else
+        ContentView(playback: playback)
+            .modifier(WindowContentSizing())
+            .modifier(WindowTitleBarConfiguration())
 #endif
     }
 }

@@ -422,7 +422,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$SRCROOT/../audio-files\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n";
+			shellScript = "set -e\nAUDIO_SOURCE_DIR=\"${AMBIENTSPACE_AUDIO_SOURCE_DIR:-$SRCROOT/../audio-files}\"\nif [ ! -d \"$AUDIO_SOURCE_DIR\" ]; then\n    echo \"error: Audio source directory not found: $AUDIO_SOURCE_DIR\"\n    exit 1\nfi\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$AUDIO_SOURCE_DIR\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\n";
 			showEnvVarsInLog = 0;
 		};
 		WA0000000000000000000001 /* Build Widget Audio Catalog */ = {
@@ -442,7 +442,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$SRCROOT/../audio-files\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" --metadata-only\n";
+			shellScript = "set -e\nAUDIO_SOURCE_DIR=\"${AMBIENTSPACE_AUDIO_SOURCE_DIR:-$SRCROOT/../audio-files}\"\nif [ ! -d \"$AUDIO_SOURCE_DIR\" ]; then\n    echo \"error: Audio source directory not found: $AUDIO_SOURCE_DIR\"\n    exit 1\nfi\npython3 \"$SRCROOT/../scripts/build_audio_catalog.py\" --source \"$AUDIO_SOURCE_DIR\" --destination \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\" --metadata-only\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -535,8 +535,11 @@
 				INFOPLIST_FILE = AmbientSpace/Resources/Info.plist;
 				"INFOPLIST_FILE[sdk=macosx*]" = AmbientSpace/Resources/Info-MacCatalyst.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
-				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
+				"ARCHS[sdk=macosx*]" = "x86_64 arm64";
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.0;
+				"ONLY_ACTIVE_ARCH[sdk=macosx*]" = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(AMBIENTSPACE_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -565,8 +568,11 @@
 				INFOPLIST_FILE = AmbientSpace/Resources/Info.plist;
 				"INFOPLIST_FILE[sdk=macosx*]" = AmbientSpace/Resources/Info-MacCatalyst.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
-				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
+				"ARCHS[sdk=macosx*]" = "x86_64 arm64";
+				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.0;
+				"ONLY_ACTIVE_ARCH[sdk=macosx*]" = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(AMBIENTSPACE_BUNDLE_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -587,6 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceTests;
@@ -606,6 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceTests;
@@ -735,6 +743,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceUITests;
@@ -753,6 +762,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
 				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.florisvandesande.AmbientSpaceUITests;
@@ -776,8 +786,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AmbientSpaceWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
+				MACCATALYST_DEPLOYMENT_TARGET = 14.0;
+				"ARCHS[sdk=macosx*]" = "x86_64 arm64";
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
+				"ONLY_ACTIVE_ARCH[sdk=macosx*]" = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(AMBIENTSPACE_BUNDLE_ID).Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -803,8 +815,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = AmbientSpaceWidgets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACCATALYST_DEPLOYMENT_TARGET = 13.0;
+				MACCATALYST_DEPLOYMENT_TARGET = 14.0;
+				"ARCHS[sdk=macosx*]" = "x86_64 arm64";
 				"MACOSX_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.0;
+				"ONLY_ACTIVE_ARCH[sdk=macosx*]" = NO;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(AMBIENTSPACE_BUNDLE_ID).Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";

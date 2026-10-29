@@ -84,6 +84,7 @@ uploads/*
 ################################################################################
 Thumbs.db
 agents.md
+!AGENTS.md
 CODEREVIEW.md
 PROJECT_PLAN.md
 
