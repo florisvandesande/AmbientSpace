@@ -52,7 +52,11 @@ private struct BottomPopoverAnchor<Content: View>: UIViewRepresentable {
             let root = AnyView(
                 ViewThatFits(in: .vertical) {
                     content.fixedSize(horizontal: false, vertical: true)
-                    ScrollView { content }.scrollBounceBehavior(.basedOnSize)
+                    if #available(macCatalyst 16.4, *) {
+                        ScrollView { content }.scrollBounceBehavior(.basedOnSize)
+                    } else {
+                        ScrollView { content }
+                    }
                 }
                 .frame(width: width)
                 .frame(maxHeight: height)

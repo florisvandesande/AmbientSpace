@@ -69,7 +69,7 @@ struct SleepTimerPopoverView: View {
                     }
                 }
                 .pickerStyle(.menu)
-                .onChange(of: customHours) { _, hours in
+                .onChange(of: customHours) { hours in
                     if hours == 12 { customMinutes = 0 }
                 }
 

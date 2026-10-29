@@ -218,7 +218,8 @@ final class DualPlayerAudioEngine: AudioEngineType {
         let timer = DispatchSource.makeTimerSource(queue: .main)
         timer.schedule(deadline: .now(), repeating: renderInterval, leeway: .milliseconds(10))
         timer.setEventHandler { [weak self] in
-            if #available(macOS 14, *) {
+#if targetEnvironment(macCatalyst)
+            if #available(macCatalyst 17.0, *) {
                 MainActor.assumeIsolated {
                     guard let self else { return }
                     self.render(at: self.now())
@@ -229,6 +230,24 @@ final class DualPlayerAudioEngine: AudioEngineType {
                     self.render(at: self.now())
                 }
             }
+#elseif os(macOS)
+            if #available(macOS 14.0, *) {
+                MainActor.assumeIsolated {
+                    guard let self else { return }
+                    self.render(at: self.now())
+                }
+            } else {
+                Task { @MainActor [weak self] in
+                    guard let self else { return }
+                    self.render(at: self.now())
+                }
+            }
+#else
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                self.render(at: self.now())
+            }
+#endif
         }
         timer.resume()
         renderTimer = timer
