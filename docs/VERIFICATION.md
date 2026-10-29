@@ -2,17 +2,18 @@
 
 ## Current compatibility verification contract
 
-Issue #3 changes the Mac Catalyst support contract to macOS 13.0 and a universal application containing both `x86_64` and `arm64` code. The verification baseline is the Intel iMac18,3 with macOS 13.7.8, Xcode 15.2, the macOS 14.2 SDK, and the iOS 17.2 SDK.
+Issue #3 uses the split Mac Catalyst contract: the main application supports macOS 13.0 and later, while the `AmbientSpaceWidgets` extension remains available on macOS 14.0 and later. iOS remains iOS 17.0 and later. The Mac application and embedded widget executable remain universal products containing both `x86_64` and `arm64` code. The verification baseline is the Intel iMac18,3 with macOS 13.7.8, Xcode 15.2, the macOS 14.2 SDK, and the iOS 17.2 SDK.
 
 The evidence must be recorded in separate categories:
 
 - **Intel runtime verification:** build, install, launch, and exercise the Mac Catalyst app on the iMac. This covers the `x86_64` runtime path.
-- **Universal artifact verification:** inspect the application and embedded widget executable with `lipo -info` and confirm that both contain `x86_64` and `arm64`. Inspect both Info.plist files and confirm a minimum system version of `13.0`.
+- **Universal artifact verification:** inspect the application and embedded widget executable with `lipo -info` and confirm that both contain `x86_64` and `arm64`. Inspect the application `Info.plist` and confirm `LSMinimumSystemVersion` `13.0`; inspect the embedded widget `Info.plist` and confirm `LSMinimumSystemVersion` `14.0`.
+- **Widget runtime verification:** run the widget on macOS 14.0 or later and verify the existing App Intent configuration, widget families, and direct widget actions. A macOS 13 run must verify the app without expecting a usable widget.
 - **Apple Silicon runtime verification:** currently unavailable. An `arm64` slice in a universal artifact proves that Apple Silicon code is present; it does not prove that the app has run successfully on Apple Silicon hardware.
 
-The deployment script is expected to validate the bundle identifier, embedded widget extension, architectures, minimum system version, installation, launch, and a real playback interaction. A completed result entry must state which of the three evidence categories passed. It must not describe the work as fully cross-hardware verified unless an Apple Silicon runtime test is added.
+The deployment script validates the bundle identifier, embedded widget extension, installation, launch, and a real playback interaction. Run the separate architecture and plist commands in `TESTING.md` to validate the universal slices and the `13.0` app versus `14.0` widget minimum-system-version values. A completed result entry must state which evidence categories passed. It must not describe the work as fully cross-hardware verified unless an Apple Silicon runtime test is added.
 
-The entries below are historical records from earlier changes and toolchains. Their dates, hardware, architectures, and minimum-system-version claims remain unchanged as historical evidence; they do not override the current macOS 13.0 and universal-binary contract.
+The entries below are historical records from earlier changes and toolchains. Their dates, hardware, architectures, and minimum-system-version claims remain unchanged as historical evidence; they do not override the current split contract, the macOS 13.0 app floor, the macOS 14.0 widget floor, or the universal-binary requirement.
 
 ## Historical verification entries
 
