@@ -102,7 +102,7 @@ The Mac screenshot below was captured from the installed Mac Catalyst build on O
 - A Mac with Xcode 15.2 or later and the iOS and macOS SDKs. The main Mac Catalyst app supports macOS 13.0 or later. The AmbientSpaceWidgets extension requires macOS 14.0 or later. The maintained local verification baseline is Xcode 15.2 on macOS 13.7.8 with the macOS 14.2 and iOS 17.2 SDKs.
 - iPhone with iOS 17.0 or later.
 - For Mac use: macOS 13.0 or later on an Intel Mac (`x86_64`) or Apple Silicon Mac (`arm64`) for the main app. A usable AmbientSpaceWidgets extension requires macOS 14.0 or later. The distributable app and extension remain universal with `x86_64` and `arm64` slices.
-- Bash and the standard macOS command-line tools `ditto`, `mktemp`, `open`, `osascript`, `plutil`, and `pgrep` for the optional deployment script.
+- Bash and the standard macOS command-line tools `ditto`, `lipo`, `mktemp`, `open`, `osascript`, `plutil`, and `pgrep` for the optional deployment script and its universal-binary checks.
 - Python 3.9 or later, used only during development/building.
 - For installation on a physical phone: your own Apple account configured in Xcode and a development signing team.
 
@@ -176,6 +176,8 @@ BUNDLE_ID=com.example.ambientspace \
 ```
 
 The default destination is `~/Applications/AmbientSpace.app`. If an older copy exists, the script moves it to a timestamped `.previous` backup before installing the new build. Use `--build-only` for a compile-and-bundle check, `--no-launch` to install without opening the app, or `--install-path PATH` for another writable `.app` location. Signing is opt-in with `--signed --team TEAM_ID`; the script never stores or discovers a personal signing value in the committed example.
+
+The full deployment flow clicks an existing track row through its accessibility identifier to exercise play/pause. Before running it, give the terminal that starts the script access under **System Settings > Privacy & Security > Accessibility**. If Accessibility access is unavailable or interactive launch verification is not needed, use `--no-launch` (or `--build-only` when installation is also unnecessary).
 
 ### Command-line build without signing
 
@@ -307,6 +309,7 @@ Limitations to know before using or contributing:
 
 ```bash
 python3 -m unittest discover -s scripts/tests -p 'test_*.py'
+bash scripts/tests/test_deploy_macos.sh
 swift test --scratch-path /tmp/AmbientSpaceCoreTests
 ```
 
