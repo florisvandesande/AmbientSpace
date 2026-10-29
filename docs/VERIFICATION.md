@@ -1,5 +1,21 @@
 # Verification record
 
+## Current compatibility verification contract
+
+Issue #3 changes the Mac Catalyst support contract to macOS 13.0 and a universal application containing both `x86_64` and `arm64` code. The verification baseline is the Intel iMac18,3 with macOS 13.7.8, Xcode 15.2, the macOS 14.2 SDK, and the iOS 17.2 SDK.
+
+The evidence must be recorded in separate categories:
+
+- **Intel runtime verification:** build, install, launch, and exercise the Mac Catalyst app on the iMac. This covers the `x86_64` runtime path.
+- **Universal artifact verification:** inspect the application and embedded widget executable with `lipo -info` and confirm that both contain `x86_64` and `arm64`. Inspect both Info.plist files and confirm a minimum system version of `13.0`.
+- **Apple Silicon runtime verification:** currently unavailable. An `arm64` slice in a universal artifact proves that Apple Silicon code is present; it does not prove that the app has run successfully on Apple Silicon hardware.
+
+The deployment script is expected to validate the bundle identifier, embedded widget extension, architectures, minimum system version, installation, launch, and a real playback interaction. A completed result entry must state which of the three evidence categories passed. It must not describe the work as fully cross-hardware verified unless an Apple Silicon runtime test is added.
+
+The entries below are historical records from earlier changes and toolchains. Their dates, hardware, architectures, and minimum-system-version claims remain unchanged as historical evidence; they do not override the current macOS 13.0 and universal-binary contract.
+
+## Historical verification entries
+
 ## 2026-10-07 — Final Mac Catalyst interaction, resizing, and install
 
 - The installed app was tested through macOS Accessibility. Clicking the empty trailing area of the first row changed its label from `Speel Bos` to `Pauzeer Bos` and expanded the description, confirming that the whole visible row starts playback.
